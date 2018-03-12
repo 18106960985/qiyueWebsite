@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app">
     <!--使用数据遍历-->
-    <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  @changPage="changPage">
+    <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu">
     </meta-nav>
     <meta-page :currentPage="currentPage"  :isCenter="true" :pageIndex="1" >
 
@@ -36,6 +36,12 @@
     components:{
       "meta-page":MetaPage,
       "meta-nav" :MetaNav
+    },
+    props:{
+      leftMenuIsActive:{
+        type:Boolean,
+        default:false
+      }
     },
     data(){
       return{
@@ -89,6 +95,9 @@
       changPage(index){
         this.currentPage = index;
       },
+      changLeftMenu(isActive){
+        this.$emit("changLeftMenu",isActive);
+      }
     },
     mounted() {
 

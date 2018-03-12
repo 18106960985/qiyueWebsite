@@ -3,7 +3,7 @@
   <div  class="meta-head" :class="{active:currentPage >1}">
     <!--左侧 LOGO预设-->
     <div class="head-left">
-    <img src="http://www.goomay.com/upload/201704/1491379886.png"/>
+    <img src="http://www.goomay.com/upload/201704/1491380439.png"/>
     </div>
     <!--居中的菜单-->
     <div class="visible-lg-block" >
@@ -18,10 +18,15 @@
     <!--右侧联系电话 以及 左侧导航呼出-->
     <div class="head-right">
 
-      0592-7195528
+      <b>0592-7195528</b>
     </div>
     <div class="head-rights">
-田
+      <ol :class="{active:leftMenuIsActive}" @click="changLeftMenu(leftMenuIsActive==true? false : true)">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ol>
     </div>
   </div>
 </template>
@@ -41,6 +46,10 @@
               name: "暂无菜单"
             }
           },
+          leftMenuIsActive:{
+            type:Boolean,
+            default:false
+          }
         },
       data(){
           return {
@@ -56,7 +65,6 @@
 
           }
        },
-
       methods:{
         changePage(index) {
           this.$emit("changPage", index);
@@ -78,6 +86,9 @@
           this.slider.width = childLabeWidth +5 + "px";
           this.slider.left = startOffset + "px";
         },
+        changLeftMenu(isActive){
+          this.$emit("changLeftMenu",isActive);
+        }
 
       },
       computed: {
@@ -205,15 +216,19 @@
     -ms-transition: .3s;
     -o-transition: .3s;
     -webkit-transition: .3s;
+    vertical-align: middle;
+    float: left;
   }
-  @media (min-width: 768px){
-    .meta-head .head-left {
-      width: 50%;
-    }
-  }
+
   @media (min-width: 300px){
     .meta-head .head-left {
       width: 70%;
+    }
+  }
+
+  @media (min-width: 768px){
+    .meta-head .head-left {
+      width: 50%;
     }
   }
   @media (min-width: 1200px){
@@ -221,6 +236,16 @@
       width: 20%;
     }
   }
+  @media (min-width: 1440px){
+    .meta-head .head-left {
+      width: 25%;
+    }
+  }
+
+
+
+
+
 
   .visible-lg-block {
     display: none !important;
@@ -324,6 +349,22 @@
     -webkit-transform: translate(0,-50%);
   }
 
+  .meta-head .head-right b{
+    color: #ff9900;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 26px;
+    height: 28px;
+    line-height: 26px;
+    float: left;
+    display: block;
+    transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    -webkit-transition: .3s;
+  }
+
   .meta-head .head-rights {
     position: absolute;
     right: 2.5%;
@@ -336,4 +377,26 @@
     -webkit-transform: translate(0,-50%);
   }
 
+  .meta-head .head-rights ol{
+    font-style: normal;
+    margin: 1px;
+    padding: 0;
+    width: 26px;
+    height: 26px;
+    display: block;
+    cursor: pointer;
+  }
+  .meta-head .head-rights ol li{
+    width: 11px;
+    height: 11px;
+    float: left;
+    margin: 1px;
+    background: #ff9900;
+    display: block;
+    overflow: hidden;
+  }
+  .meta-head .head-rights ol.active li{
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,.1);
+  }
 </style>

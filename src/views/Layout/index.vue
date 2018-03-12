@@ -2,25 +2,38 @@
   <div class="app">
     <!--主体内容区域-->
     <div class="content">
-
-      <ye-index></ye-index>
+      <!--左侧菜单-->
+      <meta-left-nav-menu :isActive="leftMenuIsActive"></meta-left-nav-menu>
+      <ye-index   :leftMenuIsActive="leftMenuIsActive"  @changLeftMenu="changLeftMenu"></ye-index>
     </div>
     <!--右侧导航栏 需要配置路由-->
-    <div class="nav-menu">
 
-    </div>
 
   </div>
 
 </template>
 
 <script>
+  import metaIndex from  "../index/index";
+  import leftMenu from "./components/metaLeftMenu";
     export default {
         name: "index",
         components:{
-          'ye-index':import("../index/index"),
+          'ye-index':metaIndex,
+          'meta-left-nav-menu': leftMenu
+        },
+      data(){
+          return {
+             leftMenuIsActive:false,
 
+
+          }
+      },
+      methods:{
+        changLeftMenu(isActive){
+          this.leftMenuIsActive = isActive;
         }
+      }
     }
 </script>
 
