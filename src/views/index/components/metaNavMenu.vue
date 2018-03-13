@@ -373,7 +373,7 @@
     letter-spacing: 1px;
     font-size: 26px;
     height: 28px;
-    line-height: 26px;
+    line-height: 30px;
     float: left;
     display: block;
     transition: .3s;
@@ -393,6 +393,8 @@
     -ms-transform: translate(0,-50%);
     -o-transform: translate(0,-50%);
     -webkit-transform: translate(0,-50%);
+    margin: 0;
+    padding-right: 28px;
   }
 
   .meta-head .head-rights ol{
