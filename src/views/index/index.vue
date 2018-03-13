@@ -1,13 +1,20 @@
 <template>
   <div id="app" class="app">
     <!--使用数据遍历-->
-    <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu">
+    <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu" >
     </meta-nav>
-    <meta-page :currentPage="currentPage"  :isCenter="true" :pageIndex="1" >
+    <meta-page :currentPage="currentPage"  :isCenter="true" :pageIndex="1"  >
 
+      <meta--carousel>
+
+      </meta--carousel>
+      <div class="banner-down" @click="currentPage=2">
+        next
+      </div>
     </meta-page>
 
-    <meta-page :currentPage="currentPage"  :pageIndex="2" >
+
+    <meta-page :currentPage="currentPage"  :pageIndex="2"  :imgSrc="components.imgSrc">
       产品页。不居中
     </meta-page>
 
@@ -28,14 +35,16 @@
 </template>
 
 <script>
-  import MetaPage from './components/yeCardPage';
+  import MetaPage from '../../components/Carousel/yeCardPage';
+  import Carousel from '../Carousel/index';
   import MetaNav from "./components/metaNavMenu";
 
   export default {
     name: 'app',
     components:{
       "meta-page":MetaPage,
-      "meta-nav" :MetaNav
+      "meta-nav" :MetaNav,
+      "meta-Carousel": Carousel,
     },
     props:{
       leftMenuIsActive:{
@@ -83,6 +92,7 @@
               }
 
             ],
+          imgSrc:"https://images.apple.com/v/mac/home/y/images/home/imac_pro_large_2x.jpg",
         },
 
       }
@@ -196,5 +206,33 @@
 
   .author-info {
     text-align: center;
+  }
+  .banner-down{
+    position: absolute;
+    top: 90%;
+    cursor: pointer;
+    left: 50%;
+    margin-left: -24px;
+    width: 47px;
+    height: 47px;
+    text-align: center;
+    line-height: 47px;
+    color: #fff;
+    font-size: 24px;
+  }
+  .banner-down:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 47px;
+    height: 47px;
+    background: #fff;
+    opacity: .2;
+    border-radius: 50%;
+    transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    -webkit-transition: .3s;
   }
 </style>

@@ -1,10 +1,11 @@
 <template>
 
   <section class="page" v-if="pageIndex"
-           :class="{'page-before ': pageIndex< currentPage,
+           :class=" [{'page-before ': pageIndex< currentPage,
                 'page-after ': pageIndex > currentPage,
-                'page-current ':pageIndex === currentPage}" >
-    <div  class="banner-bin bimg" :class="{'all-center ': isCenter}"  style=" background-image:  url('https://images.apple.com/v/mac/home/y/images/home/imac_pro_large_2x.jpg');">
+                'page-current ':pageIndex === currentPage,
+                },  direction == 'x' ? 'x' : 'y']" >
+    <div class="banner-bin bimg" :class="{'all-center ': isCenter}"  :style="{backgroundImage:`url(${imgSrc})`}">
       <slot></slot>
     </div>
   </section>
@@ -29,17 +30,36 @@
           type:Boolean,
           default:false
         },
+        imgSrc:{
+          type:String,
+          default:null
+
+        },
+        direction:{ //切换方向
+          type:String,
+          default:"y"
+        }
 
       },
       watch:{
 
       },
+      computed:{
+        directionClass(){
+          return {
+                  direction
+          }
+        }
+      },
       methods:{
           //页面变化
       },
+      mounted(){
+      },
       data(){
         return {
-          option: null
+          option: null,
+
         }
       },
     }
@@ -76,7 +96,7 @@
     transition: all 0.5s ease 0s;
     z-index: 1;
     width: 100%;
-    background: #1a1a1a;
+    background: #fff;
 
   }
 
@@ -87,12 +107,26 @@
 
   .page-before {
     z-index: 0;
+  }
+
+  .page-before.x{
+    transform: translate3d(-100%, 0, 0);
+
+  }
+  .page-before.y{
     transform: translate3d(0, -100%, 0);
   }
 
+
   .page-after {
     z-index: 0;
-    transform: translate3d(0, 100%, 0);
+  }
+
+  .page-after.x{
+    transform: translate3d(100%, 0, 0);
+  }
+  .page-after.y{
+    transform: translate3d(0, -100%, 0);
   }
 
 
