@@ -5,7 +5,7 @@
                 'page-after ': pageIndex > currentPage,
                 'page-current ':pageIndex === currentPage,
                 },  direction == 'x' ? 'x' : 'y']" >
-    <div class="banner-bin bimg" :class="{'all-center ': isCenter}"  :style="{backgroundImage:`url(${imgSrc})`}">
+    <div class="banner-bin bimg" :class="{'all-center ': isCenter}"  :style="{backgroundImage:`url(${imgSrc})`,backgroundColor:bagColor}">
       <slot></slot>
     </div>
   </section>
@@ -38,6 +38,10 @@
         direction:{ //切换方向
           type:String,
           default:"y"
+        },
+        bagColor:{
+          type:String,
+          default:"#1a1a1a"
         }
 
       },
@@ -126,7 +130,7 @@
     transform: translate3d(100%, 0, 0);
   }
   .page-after.y{
-    transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, 100%, 0);
   }
 
 

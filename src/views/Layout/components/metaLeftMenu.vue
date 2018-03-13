@@ -24,8 +24,12 @@
       </div>
       <div class="footer">
         <div class="social-box">
-          <a href="#">QQ</a>
-          <a href="#">微信</a>
+          <a href="#">
+            <svg-icon icon-class="qq"/>
+          </a>
+          <a href="#">
+            <svg-icon icon-class="wechat"/>
+          </a>
         </div>
         <div class="footer-box">
            即时通信无所不能！！
@@ -216,7 +220,7 @@
     line-height: 40px;
     border-radius: 50%;
     background: #ff9900;
-    font-size: 16px;
+    font-size: 24px;
     margin: 2.5px 7.5px;
     cursor: pointer;
     color: #fff;

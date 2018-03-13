@@ -17,7 +17,7 @@
     </div>
     <!--右侧联系电话 以及 左侧导航呼出-->
     <div class="head-right">
-
+      <svg-icon icon-class="tel" style="width: 28px; height: 28px;"/>
       <b>0592-7195528</b>
     </div>
     <div class="head-rights">
@@ -347,6 +347,24 @@
     -ms-transform: translate(0,-50%);
     -o-transform: translate(0,-50%);
     -webkit-transform: translate(0,-50%);
+  }
+
+  .svg-icon  {
+    color: #ff9900;
+    font-size: 20px;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 26px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 10px;
+    overflow: hidden;
+    transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    -webkit-transition: .3s;
   }
 
   .meta-head .head-right b{

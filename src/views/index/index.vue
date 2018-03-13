@@ -9,7 +9,7 @@
 
       </meta--carousel>
       <div class="banner-down" @click="currentPage=2">
-        next
+        <svg-icon icon-class="down"/>
       </div>
     </meta-page>
 
@@ -219,7 +219,9 @@
     line-height: 47px;
     color: #fff;
     font-size: 24px;
+    z-index: 2;
   }
+
   .banner-down:before {
     content: '';
     position: absolute;
@@ -235,4 +237,9 @@
     -o-transition: .3s;
     -webkit-transition: .3s;
   }
+  .banner-down:hover:before {
+    background: #ff9900;
+    opacity: .7;
+  }
+
 </style>

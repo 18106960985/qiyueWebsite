@@ -2,8 +2,12 @@
   <div>
       <!--两侧左右按钮 使用绝对布局-->
       <div class="banner-ctrl">
-        <div class="ctrl-box ctrl-left"><svg-icon icon-class="qq-2"/></div>
-        <div class="ctrl-box ctrl-right"><svg-icon icon-class="rgihtPage"/></div>
+        <div class="ctrl-box ctrl-left">
+          <svg-icon icon-class="leftPage"/>
+        </div>
+        <div class="ctrl-box ctrl-right">
+          <svg-icon icon-class="rgihtPage"/>
+        </div>
       </div>
       <!--轮播图导航条-->
       <div class="banner-page container-horizontal pagination-bullets">
