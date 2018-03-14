@@ -2,27 +2,19 @@
   <div>
       <!--两侧左右按钮 使用绝对布局-->
       <div class="banner-ctrl">
-        <div class="ctrl-box ctrl-left">
+        <div class="ctrl-box ctrl-left" @click="changePage(prevIndex)">
           <svg-icon icon-class="leftPage"/>
         </div>
-        <div class="ctrl-box ctrl-right">
+        <div class="ctrl-box ctrl-right" @click="changePage(nextIndex)">
           <svg-icon icon-class="rgihtPage"/>
         </div>
       </div>
       <!--轮播图导航条-->
       <div class="banner-page container-horizontal pagination-bullets">
-            <span class="pagination-bullet active">
+        <span v-for="item in pageNum "  :class="{active: currentPage==item}"  class="pagination-bullet" @click="">
 
-            </span>
-        <span class="pagination-bullet">
+        </span>
 
-            </span>
-        <span class="pagination-bullet">
-
-            </span>
-        <span class="pagination-bullet">
-
-            </span>
 
       </div>
   </div>
@@ -31,6 +23,35 @@
 <script>
   export default {
     name: 'page-controller',
+    props:{
+      pageNum: {
+        type:Number,
+        default:0
+      },
+      currentPage: {
+        type:Number,
+        default:1
+      },
+
+    },
+    data(){
+      return{
+        option: null,
+      }
+    },
+    computed:{
+      nextIndex () {
+        return this.currentPage === this.pageNum ? 1 :this.currentPage + 1;
+      },
+      prevIndex () {
+        return this.currentPage === 1 ? this.pageNum : this.currentPage - 1;
+      }
+    },
+    methods:{
+      changePage(index){
+        this.$emit('update:currentPage',index);
+      }
+    }
 
   }
 </script>

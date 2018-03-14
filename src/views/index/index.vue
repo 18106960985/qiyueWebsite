@@ -1,10 +1,7 @@
 <template>
   <div id="app" class="app">
-    <!--使用数据遍历-->
-    <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu" >
-    </meta-nav>
-    <meta-page :currentPage="currentPage"  :isCenter="true" :pageIndex="1"  >
 
+    <meta-page :currentPage="currentPage"   >
       <meta--carousel>
 
       </meta--carousel>
@@ -14,23 +11,20 @@
     </meta-page>
 
 
-    <meta-page :currentPage="currentPage"  :pageIndex="2"  :imgSrc="components.imgSrc">
+    <meta-page :currentPage="currentPage"  >
       产品页。不居中
     </meta-page>
 
-    <meta-page :currentPage="currentPage"  :pageIndex="3" >
+    <meta-page :currentPage="currentPage"  >
       产品页。不居中
     </meta-page>
-    <meta-page :currentPage="currentPage"  :pageIndex="4" >
-      产品页。不居中
-    </meta-page>
-    <meta-page :currentPage="currentPage"  :pageIndex="5" >
-      产品页。不居中
-    </meta-page>
-    <meta-page :currentPage="currentPage"  :pageIndex="6" >
+    <meta-page :currentPage="currentPage"  >
       产品页。不居中
     </meta-page>
 
+    <!--使用数据遍历-->
+    <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu" >
+    </meta-nav>
   </div>
 </template>
 
@@ -52,16 +46,38 @@
         default:false
       }
     },
+    created(){
+    },
     data(){
-      return{
+      return {
+        options: [{
+
+          //背景图片
+          //是否居中
+          isCenter: true,
+          //切换方向
+          direction:"y",
+        }, {
+          background: 'rgba(79, 204, 76, 1)',
+          color: '#fff',
+          isCenter: false,
+          direction:"y",
+          bimgSrc:"https://images.apple.com/v/mac/home/y/images/home/imac_pro_large_2x.jpg",
+        }, {
+          background: 'rgba(233, 84, 84, 1)',
+          color: '#fff',
+          isCenter: true,
+          direction:"y",
+        }, {
+          background: 'rgba(46, 153, 229, 1)',
+          color: '#fff',
+          isCenter: true,
+          direction:"y",
+        }],
+
         currentPage: 1,
         totalPage: 2,//总页数
-        controllerOption: {
-          arrowsType: false,
-          navbar: true,
-          highlight: true,
-          loop: false
-        },
+
         components:{
           //遍历的标题栏样式
           ulOptions:
@@ -92,7 +108,6 @@
               }
 
             ],
-          imgSrc:"https://images.apple.com/v/mac/home/y/images/home/imac_pro_large_2x.jpg",
         },
 
       }
@@ -107,9 +122,32 @@
       },
       changLeftMenu(isActive){
         this.$emit("changLeftMenu",isActive);
+      },
+      initPage(){
+        console.log(this.totalPage)
+        this.$children.forEach((child, index) => {
+          if (child.option == null) {
+            console.log(child.option)
+            console.log(_this.options)
+            let childOption = this.options[index];
+            this.$set(childOption, 'index', index + 1);
+            child.option = childOption;
+          }
+        });
       }
     },
     mounted() {
+
+     let size= this.options.length -1;
+      this.$children.forEach((child, index) => {
+        if (index >size) return;
+        if (child.option == null) {
+          let childOption = this.options[index];
+          this.$set(childOption, 'index', index + 1);
+          child.option = childOption;
+        }
+
+      });
 
     }
   }

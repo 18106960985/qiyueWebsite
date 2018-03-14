@@ -1,11 +1,12 @@
 <template>
 
-  <section class="page" v-if="pageIndex"
-           :class=" [{'page-before ': pageIndex< currentPage,
-                'page-after ': pageIndex > currentPage,
-                'page-current ':pageIndex === currentPage,
-                },  direction == 'x' ? 'x' : 'y']" >
-    <div class="banner-bin bimg" :class="{'all-center ': isCenter}"  :style="{backgroundImage:`url(${imgSrc})`,backgroundColor:bagColor}">
+  <section class="page" v-if="option"
+           :style="{background: option.background,color: option.color}"
+           :class=" [{'page-before ': option.index< currentPage,
+                'page-after ':  option.index > currentPage,
+                'page-current ': option.index === currentPage,
+                },  option.direction == 'x' ? 'x' : 'y']" >
+    <div class="banner-bin bimg" :class="{'all-center ': option.isCenter}"  :style="option.style">
       <slot></slot>
     </div>
   </section>
@@ -19,41 +20,13 @@
       props:{
         currentPage: {
           type:Number,
-          default: 1,
         },
-        //生成组件页面的索引值
-        pageIndex:{
-          type:Number,
-        },
-        //是否居中
-        isCenter:{
-          type:Boolean,
-          default:false
-        },
-        imgSrc:{
-          type:String,
-          default:null
-
-        },
-        direction:{ //切换方向
-          type:String,
-          default:"y"
-        },
-        bagColor:{
-          type:String,
-          default:"#1a1a1a"
-        }
 
       },
       watch:{
 
       },
       computed:{
-        directionClass(){
-          return {
-                  direction
-          }
-        }
       },
       methods:{
           //页面变化
@@ -63,7 +36,6 @@
       data(){
         return {
           option: null,
-
         }
       },
     }
@@ -84,7 +56,7 @@
 
   .bimg{
     overflow:hidden;
-
+    background-image: url("");
     background-size:50% 100%;
     background-position: center;
 
@@ -100,7 +72,6 @@
     transition: all 0.5s ease 0s;
     z-index: 1;
     width: 100%;
-    background: #fff;
 
   }
 

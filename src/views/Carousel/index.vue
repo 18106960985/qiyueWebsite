@@ -1,7 +1,7 @@
 <template>
 
   <div>
-     <ye-page :currentPage="currentPage" :imgSrc="components.imgSrc" :direction="direction" :pageIndex="1" :isCenter="true">
+     <ye-page :currentPage.sync="currentPage" >
        <h1 class="text-center">项目介绍</h1>
        <section class="animate" ref="section1">
          <p class="demo-intro">Vue-FullPage是一个使用Vue制作的全屏页面模板，是为了学习Vue而制作的一个Vue项目</p>
@@ -13,19 +13,17 @@
        </section>
      </ye-page>
 
-    <ye-page :currentPage="currentPage" :direction="direction" :pageIndex="2">
+    <ye-page :currentPage.sync="currentPage" :direction="direction" :pageIndex="2">
 
     </ye-page>
-    <ye-page :currentPage="currentPage" :direction="direction" :pageIndex="3">
+    <ye-page :currentPage.sync="currentPage" :direction="direction" :pageIndex="3">
 
     </ye-page>
-    <ye-page :currentPage="currentPage" :direction="direction" :pageIndex="4">
+    <ye-page :currentPage.sync="currentPage" :direction="direction" :pageIndex="4">
 
     </ye-page>
-    <ye-page :currentPage="currentPage" :direction="direction" :pageIndex="5">
 
-    </ye-page>
-    <page-controller  ></page-controller>
+    <page-controller  :currentPage.sync="currentPage" :pageNum="options.length"></page-controller>
 
   </div>
 </template>
@@ -53,42 +51,72 @@
             currentPage: 1,
             direction:"x",
             options: [{
-              // the color of background
-              background: 'rgba(229, 199, 46, 1)',
-              // the color of text
-              color: '#fff',
-              // is content center
+              background: '#1a1a1a',
+              // style属性
+              color: '#1a1a1a',
+              //背景图片
+              bimgSrc:"",
+              // 内联样式
+              style:{
+                backgroundImage: "url('https://images.apple.com/v/mac/home/y/images/home/imac_pro_large_2x.jpg'",
+                backgroundSize:"50% 100%",
+                backgroundPosition: "center",
+              },
+              // 是否居中
               isCenter: true,
-              // the function before page show
-              afterEnter: afterEnterAnimate,
-              // the function after page show
-              beforeLeave: beforeLeaveAnimate
+              //切换方向
+              direction:"x",
+
             }, {
-              background: 'rgba(79, 204, 76, 1)',
+              background: '#fff',
               color: '#fff',
+              style:{
+                backgroundImage: "url('https://images.apple.com/v/home/dn/images/heroes/iphone-x/iphone_x_large_2x.jpg'",
+                backgroundSize:"100% 50%",
+                backgroundPosition: "center",
+              },
               isCenter: true,
-              afterEnter: afterEnterAnimate,
-              beforeLeave: beforeLeaveAnimate
+              direction:"x",
+
+
             }, {
-              background: 'rgba(233, 84, 84, 1)',
+              background: '#fafafa',
               color: '#fff',
+              style:{
+                backgroundImage: "url('https://images.apple.com/cn/home/images/tier-one-heroes/apple-watch/watch_large_2x.jpg'",
+                backgroundSize:"50% 50%",
+                backgroundPosition: "center",
+              },
               isCenter: true,
-              afterEnter: afterEnterAnimate,
-              beforeLeave: beforeLeaveAnimate
+              direction:"x",
+
             }, {
               background: 'rgba(46, 153, 229, 1)',
+
               color: '#fff',
               isCenter: true,
-              afterEnter: afterEnterAnimate,
-              beforeLeave: beforeLeaveAnimate
+              direction:"x",
+
             }],
             components:{
-              imgSrc:"https://images.apple.com/v/mac/home/y/images/home/imac_pro_large_2x.jpg",
+
             }
           }
       },
       computed:{
 
+      },
+      mounted(){
+        let size= this.options.length -1;
+        this.$children.forEach((child, index) => {
+          if (index >size) return;
+          if (child.option == null) {
+            let childOption = this.options[index];
+            this.$set(childOption, 'index', index + 1);
+            child.option = childOption;
+          }
+
+        });
       }
     }
 </script>

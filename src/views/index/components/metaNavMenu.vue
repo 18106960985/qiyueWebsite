@@ -13,7 +13,6 @@
          <label>{{index.name}}</label>
        </li>
      </ul>
-
     </div>
     <!--右侧联系电话 以及 左侧导航呼出-->
     <div class="head-right">
@@ -56,7 +55,7 @@
                slider:{
                  width: "0px",
                  left: '0px'
-               }
+               },
           }
       },
 
