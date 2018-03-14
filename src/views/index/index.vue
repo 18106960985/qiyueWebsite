@@ -21,13 +21,11 @@
     <meta-page :currentPage="currentPage"  >
       产品页。不居中
     </meta-page>
-
     <!--使用数据遍历-->
     <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu" >
     </meta-nav>
   </div>
 </template>
-
 <script>
   import MetaPage from '../../components/Carousel/yeCardPage';
   import Carousel from '../Carousel/index';
@@ -121,7 +119,7 @@
         this.currentPage = index;
       },
       changLeftMenu(isActive){
-        this.$emit("changLeftMenu",isActive);
+        this.$emit("update:leftMenuIsActive",isActive);
       },
       initPage(){
         console.log(this.totalPage)

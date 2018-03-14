@@ -4,7 +4,7 @@
     <div class="content">
       <!--左侧菜单-->
       <meta-left-nav-menu :isActive="leftMenuIsActive"></meta-left-nav-menu>
-      <ye-index   :leftMenuIsActive="leftMenuIsActive"  @changLeftMenu="changLeftMenu"></ye-index>
+      <ye-index   :leftMenuIsActive.sync="leftMenuIsActive"  ></ye-index>
     </div>
     <!--右侧导航栏 需要配置路由-->
 
@@ -30,9 +30,7 @@
           }
       },
       methods:{
-        changLeftMenu(isActive){
-          this.leftMenuIsActive = isActive;
-        }
+
       }
     }
 </script>
