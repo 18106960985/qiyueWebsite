@@ -1,21 +1,15 @@
 <template>
+  <div>
+    <ye-page :currentPage.sync="currentPage" >
+      <first ></first>
+    </ye-page>
+    <ye-page :currentPage.sync="currentPage"  >
 
-  <div @load="loadAnimate">
-
+    </ye-page>
     <ye-page :currentPage.sync="currentPage" >
 
-      <first ></first>
-
-
     </ye-page>
-
-    <ye-page :currentPage.sync="currentPage" :direction="direction" :pageIndex="2">
-
-    </ye-page>
-    <ye-page :currentPage.sync="currentPage" :direction="direction" :pageIndex="3">
-
-    </ye-page>
-    <ye-page :currentPage.sync="currentPage" :direction="direction" :pageIndex="4">
+    <ye-page :currentPage.sync="currentPage">
 
     </ye-page>
 

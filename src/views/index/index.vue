@@ -152,23 +152,6 @@
 <style>
 
 
-
-
-
-
-
-  .animate {
-    transition: all 1s ease-out 0s;
-  }
-
-  .move-left {
-    transform: translateX(-1000%);
-  }
-
-  .move-right {
-    transform: translateX(1000%);
-  }
-
   @media screen and (max-width:768px) {
     html,
     body {
