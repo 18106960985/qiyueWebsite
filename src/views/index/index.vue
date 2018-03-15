@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="app">
+  <div id="app" class="app" >
 
     <meta-page :currentPage="currentPage"   >
       <meta--carousel>
@@ -12,14 +12,14 @@
 
 
     <meta-page :currentPage="currentPage"  >
-      产品页。不居中
+      1111111111
     </meta-page>
 
     <meta-page :currentPage="currentPage"  >
-      产品页。不居中
+      2222222
     </meta-page>
     <meta-page :currentPage="currentPage"  >
-      产品页。不居中
+      3333333
     </meta-page>
     <!--使用数据遍历-->
     <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu" >
@@ -125,8 +125,6 @@
         console.log(this.totalPage)
         this.$children.forEach((child, index) => {
           if (child.option == null) {
-            console.log(child.option)
-            console.log(_this.options)
             let childOption = this.options[index];
             this.$set(childOption, 'index', index + 1);
             child.option = childOption;

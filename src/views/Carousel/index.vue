@@ -1,17 +1,13 @@
 <template>
 
-  <div>
-     <ye-page :currentPage.sync="currentPage" >
-       <h1 class="text-center">项目介绍</h1>
-       <section class="animate" ref="section1">
-         <p class="demo-intro">Vue-FullPage是一个使用Vue制作的全屏页面模板，是为了学习Vue而制作的一个Vue项目</p>
-         <p class="demo-intro">使用到的相关npm包有：
-           <a href="https://github.com/vuejs/vue-cli" target="_blank">vue-cli</a>、
-           <a href="https://github.com/vuejs-templates/webpack-simple" target="_blank">webpack-simple模板</a>
-         </p>
-         <p class="demo-intro">支持：导航条滚动，滚轮滚动，触摸滚动</p>
-       </section>
-     </ye-page>
+  <div @load="loadAnimate">
+
+    <ye-page :currentPage.sync="currentPage" >
+
+      <first ></first>
+
+
+    </ye-page>
 
     <ye-page :currentPage.sync="currentPage" :direction="direction" :pageIndex="2">
 
@@ -23,7 +19,8 @@
 
     </ye-page>
 
-    <page-controller  :currentPage.sync="currentPage" :pageNum="options.length"></page-controller>
+    <!--sync写法满足不了复杂的动画监听-->
+    <page-controller  :currentPage="currentPage" :pageNum="options.length"  @changePage="changePage"></page-controller>
 
   </div>
 </template>
@@ -31,26 +28,42 @@
 <script>
   import yeCarousel from "../../components/Carousel/yeCardPage"
   import pageController from "./components/pageController"
+  import  first from "./components/first"
 
   // 页面进出动画
-  function afterEnterAnimate($child) {
-    $child.$el.querySelector('.animate').classList.remove('move-left', 'move-right');
+  function afterEnterAnimate(el) {
+    el.$el.querySelector('.banner-bin').classList.remove('active');
+
+
   }
-  function beforeLeaveAnimate($child) {
-    let moveType = Math.random() > 0.5 ? 'move-left' : 'move-right';
-    $child.$el.querySelector('.animate').classList.add(moveType);
+  function beforeLeaveAnimate(el) {
+    el.$el.querySelector('.banner-bin').classList.add('active');
+
+
   }
     export default {
         name: "index",
       components:{
         "ye-page":yeCarousel,
         "page-controller":pageController,
+        "first":first,
       },
       data(){
           return{
+            show:true,
             currentPage: 1,
             direction:"x",
-            options: [{
+            options: [
+              {
+                background: 'rgba(46, 153, 229, 1)',
+                color: '#fff',
+                isCenter: true,
+                direction:"x",
+                afterEnter: afterEnterAnimate,
+                // the function after page show
+                beforeLeave: beforeLeaveAnimate
+              },
+              {
               background: '#1a1a1a',
               // style属性
               color: '#1a1a1a',
@@ -66,6 +79,11 @@
               isCenter: true,
               //切换方向
               direction:"x",
+              // the function before page show
+
+              afterEnter: afterEnterAnimate,
+              // the function after page show
+              beforeLeave: beforeLeaveAnimate
 
             }, {
               background: '#fff',
@@ -90,21 +108,42 @@
               isCenter: true,
               direction:"x",
 
-            }, {
-              background: 'rgba(46, 153, 229, 1)',
-
-              color: '#fff',
-              isCenter: true,
-              direction:"x",
-
             }],
             components:{
 
             }
           }
       },
-      computed:{
+      created(){
 
+      },
+      methods:{
+          //动画切换效果
+          changePage(index){
+            // let beforeIndex = this.currentPage - 1;
+            // let leaveFunction = this.options[beforeIndex].beforeLeave;
+            // typeof leaveFunction === 'function' && leaveFunction.call(this, this.$children[beforeIndex]);
+
+            this.currentPage = index;
+
+            // let nextIndex = index - 1;
+            // let enterFunction = this.options[nextIndex].afterEnter;
+            // this.$nextTick(function() {
+            //   typeof enterFunction === 'function' && enterFunction.call(this, this.$children[nextIndex]);
+            // })
+          },
+          beforeEnter: function (el) {
+            console.log(el)
+            el.style.opacity = 0
+            el.style.transformOrigin = 'left'
+          },
+          loadAnimate(){
+            alert(111);
+            let enterFunction = this.options[0].afterEnter;
+            this.$nextTick(function() {
+              typeof enterFunction === 'function' && enterFunction.call(this, this.$children[0]);
+            })
+          }
       },
       mounted(){
         let size= this.options.length -1;
@@ -115,12 +154,15 @@
             this.$set(childOption, 'index', index + 1);
             child.option = childOption;
           }
-
         });
-      }
+        }
+
     }
 </script>
 
 <style scoped>
+
+
+
 
 </style>

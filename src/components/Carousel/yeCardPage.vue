@@ -6,8 +6,12 @@
                 'page-after ':  option.index > currentPage,
                 'page-current ': option.index === currentPage,
                 },  option.direction == 'x' ? 'x' : 'y']" >
-    <div class="banner-bin bimg" :class="{'all-center ': option.isCenter}"  :style="option.style">
-      <slot></slot>
+    <div class="banner-bin" :class="{'all-center ': option.isCenter  }"   @load="" :style="option.style">
+
+        <div v-if="option.index === currentPage ? true :false">
+         <slot ></slot>
+        </div>
+
     </div>
   </section>
   <section class="page" v-else>页面正在渲染中。。。</section>
@@ -54,13 +58,7 @@
   }
 
 
-  .bimg{
-    overflow:hidden;
-    background-image: url("");
-    background-size:50% 100%;
-    background-position: center;
 
-  }
 
   .page {
     overflow: hidden;

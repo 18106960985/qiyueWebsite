@@ -11,7 +11,7 @@
       </div>
       <!--轮播图导航条-->
       <div class="banner-page container-horizontal pagination-bullets">
-        <span v-for="item in pageNum "  :class="{active: currentPage==item}"  class="pagination-bullet" @click="">
+        <span v-for="item in pageNum "  :class="{active: currentPage==item}"  class="pagination-bullet" @click="changePage(item)">
 
         </span>
 
@@ -49,7 +49,7 @@
     },
     methods:{
       changePage(index){
-        this.$emit('update:currentPage',index);
+        this.$emit('changePage',index);
       }
     }
 
