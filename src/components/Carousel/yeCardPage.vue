@@ -57,9 +57,6 @@
     position: relative;
   }
 
-
-
-
   .page {
     overflow: hidden;
     position: fixed;
@@ -72,16 +69,9 @@
     width: 100%;
 
   }
-
-
-  .bsize{
-
-  }
-
   .page-before {
     z-index: 0;
   }
-
   .page-before.x{
     transform: translate3d(-100%, 0, 0);
 
@@ -89,20 +79,15 @@
   .page-before.y{
     transform: translate3d(0, -100%, 0);
   }
-
-
   .page-after {
     z-index: 0;
   }
-
   .page-after.x{
     transform: translate3d(100%, 0, 0);
   }
   .page-after.y{
     transform: translate3d(0, 100%, 0);
   }
-
-
   /* 水平、垂直居中 */
   .all-center {
     position: absolute;

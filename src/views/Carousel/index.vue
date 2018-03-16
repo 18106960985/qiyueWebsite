@@ -131,25 +131,23 @@
             el.style.opacity = 0
             el.style.transformOrigin = 'left'
           },
-          loadAnimate(){
-            alert(111);
-            let enterFunction = this.options[0].afterEnter;
-            this.$nextTick(function() {
-              typeof enterFunction === 'function' && enterFunction.call(this, this.$children[0]);
-            })
+          initPage(){
+
+            this.$children.forEach((child, index) => {
+              if (child.option == null) {
+                if(this.options[index]){
+                  let childOption = this.options[index];
+                  this.$set(childOption, 'index', index + 1);
+                  child.option = childOption;
+                }
+              }
+            });
           }
+
       },
       mounted(){
-        let size= this.options.length -1;
-        this.$children.forEach((child, index) => {
-          if (index >size) return;
-          if (child.option == null) {
-            let childOption = this.options[index];
-            this.$set(childOption, 'index', index + 1);
-            child.option = childOption;
-          }
-        });
-        }
+        this.initPage();
+      }
 
     }
 </script>

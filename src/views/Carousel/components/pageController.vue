@@ -14,8 +14,6 @@
         <span v-for="item in pageNum "  :class="{active: currentPage==item}"  class="pagination-bullet" @click="changePage(item)">
 
         </span>
-
-
       </div>
   </div>
 </template>
