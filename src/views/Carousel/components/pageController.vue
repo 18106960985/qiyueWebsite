@@ -47,7 +47,7 @@
     },
     methods:{
       changePage(index){
-        this.$emit('changePage',index);
+        this.$emit('update:currentPage',index);
       }
     }
 

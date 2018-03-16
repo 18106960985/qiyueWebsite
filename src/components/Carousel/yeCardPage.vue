@@ -7,11 +7,7 @@
                 'page-current ': option.index === currentPage,
                 },  option.direction == 'x' ? 'x' : 'y']" >
     <div class="banner-bin" :class="{'all-center ': option.isCenter  }"   @load="" :style="option.style">
-
-        <div v-if="option.index === currentPage ? true :false">
          <slot ></slot>
-        </div>
-
     </div>
   </section>
   <section class="page" v-else>页面正在渲染中。。。</section>
