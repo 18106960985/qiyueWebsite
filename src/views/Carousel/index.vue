@@ -13,7 +13,6 @@
       <last-page :currentPage="currentPage"></last-page>
     </ye-page>
     <page-controller  :currentPage.sync="currentPage" :pageNum="options.length"  ></page-controller>
-
   </div>
 </template>
 
@@ -72,8 +71,6 @@
               },
               isCenter: true,
               direction:"x",
-
-
             }, {
               background: '#fafafa',
               color: '#fff',
@@ -117,9 +114,6 @@
 
             }
           }
-      },
-      created(){
-
       },
       methods:{
           initPage(){

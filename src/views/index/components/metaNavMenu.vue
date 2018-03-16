@@ -16,7 +16,7 @@
     </div>
     <!--右侧联系电话 以及 左侧导航呼出-->
     <div class="head-right">
-      <svg-icon icon-class="tel" style="width: 28px; height: 28px;"/>
+      <svg-icon icon-class="tel" />
       <b>0592-7195528</b>
     </div>
     <div class="head-rights">
@@ -184,7 +184,28 @@
   }
 
   /*LOGO区域*/
+  @media (min-width: 300px){
+    .meta-head .head-left {
+      width: 70%;
+    }
+  }
 
+  @media (min-width: 768px){
+    .meta-head .head-left {
+      width: 50%;
+    }
+
+  }
+  @media (min-width: 1200px){
+    .meta-head .head-left {
+      width: 20%;
+    }
+  }
+  @media (min-width: 1440px){
+    .meta-head .head-left {
+      width: 25%;
+    }
+  }
   .meta-head .head-left {
     position: absolute;
     left: 2.5%;
@@ -197,6 +218,7 @@
     -o-transform: translate(0,-50%);
     -webkit-transform: translate(0,-50%);
   }
+
   .meta-head .head-left img {
     max-width: 100%;
     max-height: 90px;
@@ -219,27 +241,12 @@
     float: left;
   }
 
-  @media (min-width: 300px){
-    .meta-head .head-left {
-      width: 70%;
-    }
-  }
-
-  @media (min-width: 768px){
-    .meta-head .head-left {
-      width: 50%;
-    }
-
-  }
-  @media (min-width: 1200px){
-    .meta-head .head-left {
-      width: 20%;
-    }
-  }
-  @media (min-width: 1440px){
-    .meta-head .head-left {
-      width: 25%;
-    }
+  .meta-head.active .head-left img {
+    transform: scale(.777777);
+    -moz-transform: scale(.777777);
+    -ms-transform: scale(.777777);
+    -o-transform: scale(.777777);
+    -webkit-transform: scale(.777777);
   }
 
 
@@ -348,6 +355,10 @@
     -o-transform: translate(0,-50%);
     -webkit-transform: translate(0,-50%);
   }
+  .meta-head.active .head-right {
+    height: 24px;
+    padding-right: 24px;
+  }
 
   .meta-head .head-right  .svg-icon  {
     color: #ff9900;
@@ -363,6 +374,13 @@
     transition: .3s;
     -moz-transition: .3s;
 
+
+  }
+  .meta-head.active .svg-icon {
+    font-size: 14px;
+    width: 24px;
+    height: 24px;
+    line-height: 20px;
   }
   @media (max-width: 767px) {
     .meta-head .head-right .svg-icon {
@@ -384,6 +402,12 @@
 
 
   }
+  .meta-head.active .head-right b {
+    font-size: 20px;
+    height: 24px;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
   @media (max-width: 767px){
     .meta-head .head-right b{
       display: none !important ;
@@ -404,6 +428,11 @@
     padding-right: 28px;
   }
 
+  .meta-head.active .head-rights {
+    top: 46%;
+    height: 20px;
+  }
+
   .meta-head .head-rights ol{
     font-style: normal;
     margin: 1px;
@@ -413,6 +442,10 @@
     display: block;
     cursor: pointer;
   }
+  .meta-head.active .head-rights ol {
+    width: 22px;
+    height: 22px;
+  }
   .meta-head .head-rights ol li{
     width: 11px;
     height: 11px;
@@ -421,6 +454,10 @@
     background: #ff9900;
     display: block;
     overflow: hidden;
+  }
+  .meta-head.active .head-rights ol li {
+    width: 9px;
+    height: 9px;
   }
   .meta-head .head-rights ol.active li{
     background: #fff;
