@@ -1,7 +1,8 @@
 
 <!--产品页-->
 <template>
-  <div>
+  <div class="window-back" style="background-image: url('https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481211118.jpg');">
+
     <div class="table-box">
       <div class="table-cell">
           <!--标题-->
@@ -25,7 +26,7 @@
 </template>
 
 <script>
-  import productList from './components/product'
+  import productList from './components/temp'
     export default {
         name: "index",
       components:{
@@ -40,10 +41,21 @@
 </script>
 
 <style scoped>
-  * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+
+  .window-back {
+    width: 100%;
+    height: 100%;
+    padding-top: 70px;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+  }
+  .table-cell {
+    display: table-cell;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
   }
   .case-box {
     overflow: hidden;

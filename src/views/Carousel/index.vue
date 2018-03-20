@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div >
+
     <ye-page :currentPage.sync="currentPage" >
       <first-page :currentPage="currentPage"></first-page>
     </ye-page>

@@ -6,7 +6,7 @@
                 'page-after ':  option.index > currentPage,
                 'page-current ': option.index === currentPage,
                 },  option.direction == 'x' ? 'x' : 'y']" >
-    <div class="banner-bin" :class="{'all-center ': option.isCenter  }"   @load="" :style="option.style">
+    <div  class="window-cut"  :class="[{'all-center ': option.isCenter  },option.direction == 'x' ? 'banner-bin' : 'window-bin']"   @load="" :style="option.style">
          <slot ></slot>
     </div>
   </section>
@@ -63,6 +63,8 @@
     transition: all 0.5s ease 0s;
     z-index: 1;
     width: 100%;
+
+
 
   }
   .page-before {

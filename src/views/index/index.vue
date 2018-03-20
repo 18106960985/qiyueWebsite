@@ -1,14 +1,15 @@
 <template>
-  <div id="app" class="app" >
-
-
+  <div  >
 
 
     <meta-page :currentPage="currentPage"  >
-      <meta-goods></meta-goods>
+
+      <meta-goods ></meta-goods>
+
     </meta-page>
 
     <meta-page :currentPage="currentPage"   >
+
       <meta--carousel>
 
       </meta--carousel>
