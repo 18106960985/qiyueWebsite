@@ -1,6 +1,13 @@
 <template>
   <div id="app" class="app" >
 
+
+
+
+    <meta-page :currentPage="currentPage"  >
+      <meta-goods></meta-goods>
+    </meta-page>
+
     <meta-page :currentPage="currentPage"   >
       <meta--carousel>
 
@@ -8,11 +15,6 @@
       <div class="banner-down" @click="currentPage=2">
         <svg-icon icon-class="down"/>
       </div>
-    </meta-page>
-
-
-    <meta-page :currentPage="currentPage"  >
-      1111111111
     </meta-page>
 
     <meta-page :currentPage="currentPage"  >
@@ -30,6 +32,7 @@
   import MetaPage from '../../components/Carousel/yeCardPage';
   import Carousel from '../Carousel/index';
   import MetaNav from "./components/metaNavMenu";
+  import goodsPage from '../goods/index'
 
   export default {
     name: 'app',
@@ -37,6 +40,7 @@
       "meta-page":MetaPage,
       "meta-nav" :MetaNav,
       "meta-Carousel": Carousel,
+      "meta-goods": goodsPage
     },
     props:{
       leftMenuIsActive:{
@@ -49,7 +53,7 @@
     data(){
       return {
         options: [{
-
+          background: 'rgba(79, 204, 76, 1)',
           //背景图片
           //是否居中
           isCenter: true,
