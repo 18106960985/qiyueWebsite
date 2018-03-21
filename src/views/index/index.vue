@@ -3,23 +3,18 @@
 
 
     <meta-page :currentPage="currentPage"  >
-
-      <meta-goods ></meta-goods>
-
+      <meta-answer></meta-answer>
     </meta-page>
 
     <meta-page :currentPage="currentPage"   >
-
       <meta--carousel>
-
       </meta--carousel>
-      <div class="banner-down" @click="currentPage=2">
+      <div class="banner-down" @click="currentPage++">
         <svg-icon icon-class="down"/>
       </div>
     </meta-page>
-
     <meta-page :currentPage="currentPage"  >
-      2222222
+      <meta-goods ></meta-goods>
     </meta-page>
     <meta-page :currentPage="currentPage"  >
       3333333
@@ -34,6 +29,7 @@
   import Carousel from '../Carousel/index';
   import MetaNav from "./components/metaNavMenu";
   import goodsPage from '../goods/index'
+  import answer from '../answer/index'
 
   export default {
     name: 'app',
@@ -41,7 +37,9 @@
       "meta-page":MetaPage,
       "meta-nav" :MetaNav,
       "meta-Carousel": Carousel,
-      "meta-goods": goodsPage
+      "meta-goods": goodsPage,
+      'meta-answer': answer,
+
     },
     props:{
       leftMenuIsActive:{
@@ -157,111 +155,6 @@
 <style>
 
 
-  @media screen and (max-width:768px) {
-    html,
-    body {
-      font-size: 12px;
-    }
-  }
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  .person-img {
-    width: 223px;
-    height: 185px;
-    float: left;
-    background-color: #fff;
-    box-shadow: 3px 3px 10px #999;
-  }
-
-  .person-img img {
-    height: 100%;
-    width: 100%;
-  }
-
-  .person-basic-info {
-    overflow: hidden;
-    float: right;
-    margin-left: 40px;
-  }
-
-  .info-line {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  .text-center {
-    text-align: center;
-  }
-
-  .text-bold {
-    font-weight: bold;
-  }
-
-  .demo-intro {
-    text-indent: 2em;
-  }
-
-  dt {
-    font-weight: bold;
-    font-size: 16px;
-  }
-
-  ul {
-    padding-left: 1em;
-  }
-
-  .avatar {
-    margin: 10px auto;
-    display: block;
-    box-shadow: 1px 1px 5px #666;
-  }
-
-  .author-info {
-    text-align: center;
-  }
-  .banner-down{
-    position: absolute;
-    top: 90%;
-    cursor: pointer;
-    left: 50%;
-    margin-left: -24px;
-    width: 47px;
-    height: 47px;
-    text-align: center;
-    line-height: 47px;
-    color: #fff;
-    font-size: 24px;
-    z-index: 2;
-  }
-
-  .banner-down:before {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 47px;
-    height: 47px;
-    background: #fff;
-    opacity: .2;
-    border-radius: 50%;
-    transition: .3s;
-    -moz-transition: .3s;
-    -ms-transition: .3s;
-    -o-transition: .3s;
-    -webkit-transition: .3s;
-  }
-  .banner-down:hover:before {
-    background: #ff9900;
-    opacity: .7;
-  }
 
 </style>
