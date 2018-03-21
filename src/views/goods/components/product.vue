@@ -39,31 +39,6 @@
 
     data() {
       return {
-        swiperOption: {
-          noSwiping : false,
-          loop: true,//无限滚动
-          slidesPerView:1,
-          slidesPerGroup : 1,
-          // spaceBetween : 20,
-          speed:1000,//切换速度
-          debugger: true,
-          onlyExternal:true,
-          autoplay: { //滚动设置
-            delay:3000,
-            disableOnInteraction:false,//不停止自动滚动
-            // reverseDirection: true,//开启反向滚动
-          },
-          navigation: {
-            prevEl: '.ctrl-left',
-            nextEl: '.ctrl-right',
-          },
-          on: {
-            slideChange: function () {
-              // console.log(this.activeIndex);
-            },
-          },
-
-        },
         goods: null,
         temps:[
           {
@@ -91,32 +66,14 @@
 
           },
 
-
         ],
       }
     },
     computed: {
-
     },
     methods:{
-      //个数自适应
-      clientWidth(){
-        let views=0;
-        if(document.body.clientWidth<768){
-          views = 1;
-        }else if(document.body.clientWidth<1200){
-          views = 2;
-        }else if(document.body.clientWidth<1660){
-          views = 3;
-        }else {
-          views = 4;
-        }
-        return views;
-      }
     },
     mounted() {
-
-
       let mySwiper = new Swiper('.case-box',{
         noSwiping : false,
         loop: true,//无限滚动
