@@ -6,7 +6,7 @@
                 'page-after ':  option.index > currentPage,
                 'page-current ': option.index === currentPage,
                 },  option.direction == 'x' ? 'x' : 'y']" >
-    <div  class="window-cut"  :class="[{'all-center ': option.isCenter  },option.direction == 'x' ? 'banner-bin' : 'window-bin']"   @load="" :style="option.style">
+    <div  class="window-cut"  :class="[{'all-center ': option.isCenter  },option.direction == 'x' ? 'banner-bin' : 'window-bin']"    :style="option.style">
          <slot ></slot>
     </div>
   </section>

@@ -1,19 +1,28 @@
+<!--该组件是用swiper组件写的奈何在样式存在很多不可控的因素弃用-->
 <template>
-  <div   v-if="temps" >
-    <div class="case-box "   style="cursor: -webkit-grab;">
-          <ul class="case-cut ">
-            <li class="case-bin"  v-for="(value,index) of temps"   >
-              <a :title="value.productName">
-                <font>
-                  <b></b>
-                  <img class="" :title="value.productName" alt="浙江晨丰科技股份有限公司" :src="value.productImg">
-                </font>
-                <span>
+  <div  class="case-box"  style="cursor: -webkit-grab;" v-if="temps" >
+    <!--<div class="ctrl-left">-->
+    <!--<svg-icon icon-class="leftPage"/>-->
+    <!--</div>-->
+    <!--<div class="ctrl-right" >-->
+    <!--<svg-icon icon-class="rgihtPage" />-->
+    <!--</div>-->
+    <div class="case-cut" >
+      <swiper :options="swiperOption"  ref="mySwiper"  >
+        <swiper-slide  class="swiper-no-swiping"  v-for="(value,index) of temps" :key="index" >
+          <div class="case-bin ">
+            <a :title="value.productName"  >
+              <font>
+                <b></b>
+                <img class="" :title="value.productName" alt="浙江晨丰科技股份有限公司" :src="value.productImg">
+              </font>
+              <span>
               <h3>{{value.productName}}</h3>
-              </span>
-              </a>
-            </li>
-          </ul>
+            </span>
+            </a>
+          </div>
+        </swiper-slide>
+      </swiper>
     </div>
     <!--控制器-->
     <div class="case-ctrl">
@@ -31,17 +40,20 @@
 </template>
 
 <script>
-  import Swiper from 'swiper'
+  import { swiper, swiperSlide } from 'vue-awesome-swiper'
   import 'swiper/dist/css/swiper.min.css';
   export default {
     name: "goods-list",
-
+    components: {
+      swiper,
+      swiperSlide
+    },
     data() {
       return {
         swiperOption: {
           noSwiping : false,
           loop: true,//无限滚动
-          slidesPerView:1,
+          slidesPerView: this.clientWidth(),
           slidesPerGroup : 1,
           // spaceBetween : 20,
           speed:1000,//切换速度
@@ -68,7 +80,7 @@
           {
             productName: 'appleWatch',
             uri: '#',
-            productImg: 'https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481356502.jpg?x-oss-process=image/resize,m_fill,w_320,limit_0&y=200',
+            productImg: 'https://store.storeimages.cdn-apple.com/8750/as-images.apple.com/is/image/AppleInc/aos/published/images/4/2/42/alu/42-alu-silver-sport-fog-nc-s3-grid_GEO_CN?wid=540&hei=550&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1507146705002',
             productAlt: 'meta小天才儿童手表',
 
           },
@@ -92,7 +104,9 @@
       }
     },
     computed: {
-
+      swiper() {
+        return this.$refs.mySwiper.swiper
+      }
     },
     methods:{
       //个数自适应
@@ -111,80 +125,17 @@
       }
     },
     mounted() {
-
-
-      let mySwiper = new Swiper('.case-box',{
-        noSwiping : false,
-        loop: true,//无限滚动
-        slidesPerView: 4,
-        slidesPerGroup : 1,
-        spaceBetween : 20,
-        breakpoints: {
-          //当宽度小于等于320
-          479: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            width: 300,
-          },
-          767: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-            width: 460,
-          },
-          1200: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            width: 600,
-          },
-          1660: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-            width: 940,
-          }
-        },
-
-        speed:1000,//切换速度
-        debugger: true,
-        onlyExternal:true,
-        autoHeight: false, //高度随内容变化
-        wrapperClass : 'case-cut',
-        slideClass : 'case-bin',
-        autoplay: { //滚动设置
-          delay:3000,
-          disableOnInteraction:false,//不停止自动滚动
-          // reverseDirection: true,//开启反向滚动
-        },
-        navigation: {
-          prevEl: '.ctrl-left',
-          nextEl: '.ctrl-right',
-        },
-        on: {
-          slideChange: function () {
-            // console.log(this.activeIndex);
-          },
-        },
-      })
       let _this = this;
+      window.onresize = function () {
+        _this.swiper.params.slidesPerView = _this.clientWidth();
 
+      }
     }
   }
 </script>
 
 <style scoped>
-  ul, menu, dir {
-    display: block;
-    list-style-type: disc;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-start: 40px;
-  }
-  * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
+
   /*.svg-icon{*/
   /*fill: #ff9900;*/
   /*width: 3em;*/
@@ -203,7 +154,7 @@
     list-style: none;
     margin: 0 auto;
     padding: 0;
-    width: 6999px;
+    /*width: 6999px;*/
   }
   ol, ul {
     margin-top: 0;
@@ -212,7 +163,7 @@
   .case-bin {
     display: block;
     list-style: none;
-    margin: 0 20px 0 0;
+    /*margin: 0 20px 0 0;*/
     padding: 0;
     float: left;
     width: 300px;
@@ -221,12 +172,6 @@
   }
 
 
-
-  .case-box {
-    overflow: hidden;
-    width: 1260px;
-    margin: 50px auto 0 auto;
-  }
 
   .case-bin a {
     display: block;
@@ -322,6 +267,12 @@
   }
 
 
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+  }
 
   .case-bin span h3 {
     display: block;
@@ -377,32 +328,8 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
-  .case-bin font b:before {
-    position: absolute;
-    content: '';
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    -ms-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    border: 500px solid rgba(0,0,0,.6);
-    left: 50%;
-    top: 50%;
-    margin: -525px 0 0 -525px;
-  }
-  .case-bin font b:after {
-    position: absolute;
-    content: '';
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(47,208,181,.6);
-    left: 50%;
-    top: 50%;
-    margin: -25px 0 0 -25px;
-  }
+
+
 
   .case-ctrl .ctrl-box {
     position: absolute;
@@ -422,11 +349,10 @@
   .ctrl-box {
     opacity: .5;
   }
-
-
-  @media (max-width: 1599px){
+  @media (max-width: 767px){
     .case-box {
-      width: 940px;
+      width: 460px;
+      margin: 20px auto;
     }
   }
   @media (max-width: 1200px){
@@ -434,42 +360,22 @@
       width: 620px;
     }
   }
-  @media (max-width: 767px){
+  @media (max-width: 1599px){
     .case-box {
-      width: 460px;
-      margin: 20px auto;
-    }
-    .case-bin {
-      margin: 0 10px 0 0;
-      width: 230px;
+      width: 940px;
     }
   }
 
-  @media (max-width: 479px){
-    .case-box {
-      width: 300px;
-      margin: 40px auto 0 auto;
 
-    }
-  }
-  @media (max-width: 400px){
-    .case-box {
-      width: 230px;
-    }
-  }
 
-  .case-cut:after {
-    content: '';
-    display: table;
-    clear: both;
-  }
+
   .case-ctrl .ctrl-left {
     left: 5%;
-    top: 50%;
+    top: 52%;
   }
   .case-ctrl .ctrl-right {
     right: 5%;
-    top: 50%;
+    top: 52%;
   }
   @media (max-width: 1200px){
     .case-ctrl .ctrl-right {
@@ -479,14 +385,6 @@
       left:0;
     }
   }
-  @media (max-width: 767px){
-    .case-ctrl .ctrl-box {
-      width: 50px;
-      line-height: 50px;
-    }
-  }
-
-
 
 </style>
 

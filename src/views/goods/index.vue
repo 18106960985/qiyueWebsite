@@ -8,7 +8,7 @@
           <!--标题-->
           <div class="title-box">
             <h1>我们的产品</h1>
-            <h2></h2>
+            <h2>产品展示</h2>
           </div>
 
           <!--产品列表 （类型）-->
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-  import productList from './components/temp'
+  import productList from './components/product'
     export default {
         name: "index",
       components:{
@@ -105,4 +105,23 @@
   a {
     background-color: transparent;
   }
+  .title-box h2 {
+    font-size: 25px;
+    letter-spacing: 3px;
+    margin: 0;
+    padding: 0;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-shadow: none;
+  }
+  @media (max-width: 767px){
+    .title-box h1 {
+      font-size: 30px;
+      margin: 0 0 5px 0;
+    }
+    .title-box h2 {
+      font-size: 18px;
+    }
+  }
+
 </style>
