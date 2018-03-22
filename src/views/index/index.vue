@@ -1,10 +1,11 @@
 <template>
   <div >
 
-
+    <!--关于-->
     <meta-page :currentPage="currentPage"  >
-      <meta-cooperation></meta-cooperation>
+      <meta-about-us></meta-about-us>
     </meta-page>
+    <!--首页-->
     <meta-page :currentPage="currentPage"   >
       <meta--carousel>
       </meta--carousel>
@@ -12,12 +13,17 @@
         <svg-icon icon-class="down"/>
       </div>
     </meta-page>
+    <!--产品-->
     <meta-page :currentPage="currentPage"  >
       <meta-goods ></meta-goods>
     </meta-page>
-
+    <!--解决方案-->
     <meta-page :currentPage="currentPage"  >
       <meta-answer></meta-answer>
+    </meta-page>
+    <!--合作-->
+    <meta-page :currentPage="currentPage"  >
+      <meta-cooperation></meta-cooperation>
     </meta-page>
     <!--使用数据遍历-->
     <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu" >
@@ -31,6 +37,7 @@
   import goodsPage from '../goods/index'
   import answer from '../answer/index'
   import cooperation from '../cooperation/index'
+  import aboutUs from '../aboutUs/index'
 
   export default {
     name: 'app',
@@ -41,6 +48,7 @@
       "meta-goods": goodsPage,
       'meta-answer': answer,
       'meta-cooperation': cooperation,
+      'meta-about-us': aboutUs,
 
     },
     props:{
@@ -72,6 +80,11 @@
           isCenter: true,
           direction:"y",
         }, {
+          background: 'rgba(46, 153, 229, 1)',
+          color: '#fff',
+          isCenter: true,
+          direction:"y",
+        },{
           background: 'rgba(46, 153, 229, 1)',
           color: '#fff',
           isCenter: true,
