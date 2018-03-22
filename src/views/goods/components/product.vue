@@ -22,7 +22,7 @@
         <svg-icon icon-class="leftPage"/>
       </div>
       <div class="ctrl-box ctrl-right">
-        <svg-icon icon-class="rgihtPage" />
+        <svg-icon icon-class="rightPage" />
       </div>
     </div>
   </div>
@@ -399,7 +399,10 @@
   .ctrl-box {
     opacity: .5;
   }
-
+  .ctrl-box:hover {
+    opacity: 1;
+    color: #ff9900;
+  }
   .case-bin span p {
     display: block;
     font-size: 12px;

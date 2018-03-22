@@ -6,7 +6,7 @@
           <svg-icon icon-class="leftPage"/>
         </div>
         <div class="ctrl-box ctrl-right" @click="changePage(nextIndex)">
-          <svg-icon icon-class="rgihtPage"/>
+          <svg-icon icon-class="rightPage"/>
         </div>
       </div>
       <!--轮播图导航条-->
@@ -70,7 +70,6 @@
   }
   .banner-ctrl .ctrl-box {
     position: absolute;
-    color: black;
     width: 80px;
     text-align: center;
     line-height: 80px;
@@ -93,8 +92,13 @@
     margin-top: -40px;
   }
 
+
   .ctrl-box {
     opacity: .5;
+  }
+  .ctrl-box:hover{
+    opacity: 1;
+    color: #ff9900;
   }
   /*分页*/
   .banner-page{
@@ -143,6 +147,5 @@
       left: 0;
       top: -10px;
     }
-
 
 </style>

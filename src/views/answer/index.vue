@@ -5,7 +5,7 @@
         <svg-icon icon-class="leftPage"/>
       </div>
       <div class="ctrl-box ctrl-right">
-        <svg-icon icon-class="rgihtPage" />
+        <svg-icon icon-class="rightPage" />
       </div>
     </div>
 
@@ -30,8 +30,6 @@
 
           </div>
         </div>
-
-
         <!--more-->
         <div class="case-more">
           <a title="更多"  >你以为这就是我们的全部了么？</a>
@@ -71,7 +69,7 @@
               ],
             },
             {
-              svgIcon:['mac', 'phone', 'wechat', 'qq'],//图片
+              svgIcon:['Mac', 'phone', 'wechat'],//图片
               description: [
                 'vue +html5+ css3',
                 '快速的开发速度',

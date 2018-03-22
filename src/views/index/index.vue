@@ -1,11 +1,10 @@
 <template>
-  <div  >
+  <div >
 
 
     <meta-page :currentPage="currentPage"  >
-      <meta-answer></meta-answer>
+      <meta-cooperation></meta-cooperation>
     </meta-page>
-
     <meta-page :currentPage="currentPage"   >
       <meta--carousel>
       </meta--carousel>
@@ -16,8 +15,9 @@
     <meta-page :currentPage="currentPage"  >
       <meta-goods ></meta-goods>
     </meta-page>
+
     <meta-page :currentPage="currentPage"  >
-      3333333
+      <meta-answer></meta-answer>
     </meta-page>
     <!--使用数据遍历-->
     <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu" >
@@ -30,6 +30,7 @@
   import MetaNav from "./components/metaNavMenu";
   import goodsPage from '../goods/index'
   import answer from '../answer/index'
+  import cooperation from '../cooperation/index'
 
   export default {
     name: 'app',
@@ -39,6 +40,7 @@
       "meta-Carousel": Carousel,
       "meta-goods": goodsPage,
       'meta-answer': answer,
+      'meta-cooperation': cooperation,
 
     },
     props:{
