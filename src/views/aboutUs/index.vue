@@ -1,5 +1,5 @@
 <template>
-  <div class="window-back" style="background-image: url('https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481175422.jpg');">
+  <div class="window-back" :style="{backgroundImage: backgroundImg}">
     <div class="table-box">
       <div class="table-cell" v-if="abouts">
         <!--一个关于导航栏-->
@@ -64,6 +64,7 @@
         name: "about-index",
       data(){
           return {
+            backgroundImg: 'url('+require('../../assets/background/bg-aboutUs.jpg')+')' ,
             currentIndex: 0,
             myAboutSwiper: undefined,
             myBottomSwiper: undefined,

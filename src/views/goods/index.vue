@@ -1,7 +1,7 @@
 
 <!--产品页-->
 <template>
-  <div class="window-back" style="background-image: url('https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481211118.jpg');">
+  <div class="window-back" :style="{backgroundImage:backgroundImg}">
 
     <div class="table-box">
       <div class="table-cell">
@@ -34,6 +34,7 @@
       },
       data(){
           return {
+            backgroundImg: 'url('+require('../../assets/background/bg-goods.jpg')+')' ,
             currentPage:0,
           }
       }

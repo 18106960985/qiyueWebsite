@@ -1,5 +1,5 @@
 <template>
-  <div class="window-back" style="background-image: url('https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481169859.jpg');">
+  <div class="window-back" :style="{backgroundImage:backgroundImg}">
     <div class="solution-ctrl">
       <div class="ctrl-box ctrl-left">
         <svg-icon icon-class="leftPage"/>
@@ -46,7 +46,7 @@
         name: "index",
       data(){
         return {
-          mySwiper:null,
+          backgroundImg: 'url('+require('../../assets/background/bg-answer.jpg')+')' ,
           answers:[
             {
               svgIcon:['win', 'linux', 'IOS', 'Andrews'],//图片

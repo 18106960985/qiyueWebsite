@@ -45,7 +45,7 @@
             productTypeName: '智能通话手表',
             productName: 'appleWatch',
             uri: '#',
-            productImg: 'https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481356502.jpg?x-oss-process=image/resize,m_fill,w_320,limit_0&y=200',
+            productImg: 'https://images.apple.com/cn/apple-watch-series-1/images/hero-and-itemlist/track_and_share_large_2x.jpg',
             productAlt: 'meta小天才儿童手表',
 
           },

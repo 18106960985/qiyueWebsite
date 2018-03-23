@@ -12,7 +12,6 @@
       <!--轮播图导航条-->
       <div class="banner-page container-horizontal pagination-bullets">
         <span v-for="item in pageNum "  :class="{active: currentPage==item}"  class="pagination-bullet" @click="changePage(item)">
-
         </span>
       </div>
   </div>
@@ -92,6 +91,14 @@
     margin-top: -40px;
   }
 
+  @media (max-width: 1000px){
+    .ctrl-box.ctrl-left{
+      left: 0;
+    }
+    .ctrl-box.ctrl-right{
+      right: 0;
+    }
+  }
 
   .ctrl-box {
     opacity: .5;
@@ -147,5 +154,6 @@
       left: 0;
       top: -10px;
     }
+
 
 </style>

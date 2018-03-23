@@ -48,8 +48,9 @@
                   backgroundImage: "url('https://images.apple.com/v/supplier-responsibility/overview/b/images/overview/hero2_large_2x.jpg'",
                   width:'100%',
                   height:'100%',
-                  backgroundSize:'100% 100%',
+                  position: 'relative',
                   backgroundPosition: "center",
+                  backgroundSize:'cover',
                 },
               },
               {

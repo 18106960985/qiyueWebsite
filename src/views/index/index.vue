@@ -1,9 +1,7 @@
 <template>
   <div >
 
-    <meta-page :currentPage="currentPage"  >
-      <meta-contact></meta-contact>
-    </meta-page>
+
     <!--首页-->
     <meta-page :currentPage="currentPage"   >
       <meta--carousel>
@@ -27,6 +25,10 @@
     <!--关于-->
     <meta-page :currentPage="currentPage"  >
       <meta-about-us></meta-about-us>
+    </meta-page>
+    <!--联系信息-->
+    <meta-page :currentPage="currentPage"  >
+      <meta-contact></meta-contact>
     </meta-page>
     <!--使用数据遍历-->
     <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu" >

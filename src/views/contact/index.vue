@@ -1,5 +1,5 @@
 <template>
-  <div class="window-back " style="background-image: url('https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481719302.jpg');">
+  <div class="window-back " :style="{backgroundImage:backgroundImg}">
     <div class="table-box">
       <div class="table-cell">
         <!-- 主体内容-->
@@ -83,6 +83,7 @@
         name: "index",
       data(){
         return {
+          backgroundImg: 'url('+require('../../assets/background/bg-bg-contactUs.jpg')+')' ,
           contactInfo:{
              QR_code: 'http://www.goomay.com/upload/201704/1493349544.png',
             telephone: '0592-1234567',
@@ -111,6 +112,7 @@
     border-bottom: 1px solid rgba(0,0,0,.25);
     padding-bottom: 30px;
     text-align: left;
+    color: black;
   }
 
   .contact-box:after {

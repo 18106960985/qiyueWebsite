@@ -1,5 +1,5 @@
 <template>
-  <div class="window-back" style="background-image: url('https://images.apple.com/cn/ipad/home/images/home/ios11_do_more_large_2x.jpg');">
+  <div class="window-back" :style="{backgroundImage:backgroundImg}">
     <!--控制栏-->
       <div class="cooperation-ctrl">
         <div class="ctrl-box ctrl-left">
@@ -38,7 +38,7 @@
         name: "index",
       data(){
           return {
-            mySwiper:null,
+            backgroundImg: 'url('+require('../../assets/background/bg-cooperation.jpg')+')' ,
             cooperations:[
               {
                 companyUrl: 'href="http://huawei.com',
