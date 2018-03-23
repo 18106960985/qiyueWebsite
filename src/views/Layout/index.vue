@@ -5,6 +5,7 @@
       <!--左侧菜单-->
       <meta-left-nav-menu :isActive="leftMenuIsActive"></meta-left-nav-menu>
       <ye-index   :leftMenuIsActive.sync="leftMenuIsActive"  ></ye-index>
+
     </div>
     <!--右侧导航栏 需要配置路由-->
 
@@ -16,6 +17,7 @@
 <script>
   import metaIndex from  "../index/index";
   import leftMenu from "./components/metaLeftMenu";
+
     export default {
         name: "index",
         components:{

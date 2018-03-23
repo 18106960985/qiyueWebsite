@@ -40,7 +40,7 @@
   import MetaPage from '../../components/Carousel/yeCardPage';
   import Carousel from '../Carousel/index';
   import MetaNav from "./components/metaNavMenu";
-  import goodsPage from '../goods/index'
+  import goodsPage from '../product/index'
   import answer from '../answer/index'
   import cooperation from '../cooperation/index'
   import aboutUs from '../aboutUs/index'
