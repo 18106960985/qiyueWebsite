@@ -1,9 +1,8 @@
 <template>
   <div >
 
-    <!--关于-->
     <meta-page :currentPage="currentPage"  >
-      <meta-about-us></meta-about-us>
+      <meta-contact></meta-contact>
     </meta-page>
     <!--首页-->
     <meta-page :currentPage="currentPage"   >
@@ -25,9 +24,14 @@
     <meta-page :currentPage="currentPage"  >
       <meta-cooperation></meta-cooperation>
     </meta-page>
+    <!--关于-->
+    <meta-page :currentPage="currentPage"  >
+      <meta-about-us></meta-about-us>
+    </meta-page>
     <!--使用数据遍历-->
     <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu" >
     </meta-nav>
+
   </div>
 </template>
 <script>
@@ -38,6 +42,7 @@
   import answer from '../answer/index'
   import cooperation from '../cooperation/index'
   import aboutUs from '../aboutUs/index'
+  import contact from '../contact/index'
 
   export default {
     name: 'app',
@@ -49,6 +54,7 @@
       'meta-answer': answer,
       'meta-cooperation': cooperation,
       'meta-about-us': aboutUs,
+      'meta-contact': contact
 
     },
     props:{
@@ -62,30 +68,35 @@
     data(){
       return {
         options: [{
-          background: 'rgba(79, 204, 76, 1)',
+          background: '#fff',
           //背景图片
           //是否居中
           isCenter: true,
           //切换方向
           direction:"y",
         }, {
-          background: 'rgba(79, 204, 76, 1)',
+          background: '#fff',
           color: '#fff',
           isCenter: false,
           direction:"y",
           bimgSrc:"https://images.apple.com/v/mac/home/y/images/home/imac_pro_large_2x.jpg",
         }, {
-          background: 'rgba(233, 84, 84, 1)',
+          background: '#fff',
           color: '#fff',
           isCenter: true,
           direction:"y",
         }, {
-          background: 'rgba(46, 153, 229, 1)',
+          background: '#fff',
           color: '#fff',
           isCenter: true,
           direction:"y",
         },{
-          background: 'rgba(46, 153, 229, 1)',
+          background: '#fff',
+          color: '#fff',
+          isCenter: true,
+          direction:"y",
+        },{
+          background: '#fff',
           color: '#fff',
           isCenter: true,
           direction:"y",

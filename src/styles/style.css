@@ -2,6 +2,7 @@ body {
   overflow-x: hidden;
   font: 14px/1.5 "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", Roboto, Arial, sans-serif;
   font-style: normal;
+  -webkit-font-variant-ligatures: normal;
   font-variant-ligatures: normal;
   font-variant-caps: normal;
   font-variant-numeric: normal;
@@ -26,6 +27,25 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: none;
 }
 
+p {
+  margin: 0 0 11px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+p {
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+.visible-lg-block,.visible-lg-inline,.visible-lg-inline-block,.visible-md-block,.visible-md-inline,.visible-md-inline-block,.visible-sm-block,.visible-sm-inline,.visible-sm-inline-block,.visible-xs-block,.visible-xs-inline,.visible-xs-inline-block {
+  display: none!important
+}
 .window-cut {
   width: 100%;
   height: 100%;
