@@ -34,19 +34,37 @@
     data(){
       return{
         option: null,
+        timer: null, //计时器
       }
     },
+    created(){
+      this.switchPage();
+    },
     computed:{
-      nextIndex () {
+      nextIndex() {
+        this.switchPage();
         return this.currentPage === this.pageNum ? 1 :this.currentPage + 1;
       },
-      prevIndex () {
+      prevIndex() {
+        this.switchPage();
         return this.currentPage === 1 ? this.pageNum : this.currentPage - 1;
       }
     },
     methods:{
       changePage(index){
         this.$emit('update:currentPage',index);
+      },
+      // 自动切换页面
+      switchPage(){
+          // 防止重复触发滚动事件
+          if (this.timer != null) {
+            clearTimeout(this.timer);
+            this.timer = null ;
+          }
+          let _this = this;
+          this.timer = setTimeout(()=>{
+            _this.changePage(_this.nextIndex);
+          },4000);
       }
     }
 
