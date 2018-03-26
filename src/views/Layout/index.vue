@@ -18,7 +18,7 @@
   import metaIndex from  "../index/index";
   import leftMenu from "./components/metaLeftMenu";
 
-  import test from '../product/showproduct/index'
+  import test from '../companyNews/index'
 
     export default {
         name: "index",
