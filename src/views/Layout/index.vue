@@ -4,8 +4,8 @@
     <div class="content">
       <!--左侧菜单-->
       <meta-left-nav-menu :isActive="leftMenuIsActive"></meta-left-nav-menu>
-      <ye-index   :leftMenuIsActive.sync="leftMenuIsActive"  ></ye-index>
-
+      <!--<ye-index   :leftMenuIsActive.sync="leftMenuIsActive"  ></ye-index>-->
+      <test></test>
     </div>
     <!--右侧导航栏 需要配置路由-->
 
@@ -18,11 +18,14 @@
   import metaIndex from  "../index/index";
   import leftMenu from "./components/metaLeftMenu";
 
+  import test from '../product/showproduct/index'
+
     export default {
         name: "index",
         components:{
           'ye-index':metaIndex,
-          'meta-left-nav-menu': leftMenu
+          'meta-left-nav-menu': leftMenu,
+          'test' :test,
         },
       data(){
           return {

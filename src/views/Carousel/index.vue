@@ -45,7 +45,7 @@
                 isCenter: true,
                 direction:"x",
                 style:{
-                  backgroundImage: 'url('+ require('../../assets/background/bg-main.jpg')+')',
+                  backgroundImage: 'url('+ require('../../assets/background/bg-bg-contactUs.jpg')+')',
                   // width:'100%',
                   // height:'100%',
                   // position: 'relative',
