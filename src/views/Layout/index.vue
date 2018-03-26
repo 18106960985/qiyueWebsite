@@ -18,14 +18,14 @@
   import metaIndex from  "../index/index";
   import leftMenu from "./components/metaLeftMenu";
 
-  import test from '../companyNews/index'
+  import metaDetails from '../companyNews/metaDetails'
 
     export default {
         name: "index",
         components:{
           'ye-index':metaIndex,
           'meta-left-nav-menu': leftMenu,
-          'test' :test,
+          'test' :metaDetails,
         },
       data(){
           return {

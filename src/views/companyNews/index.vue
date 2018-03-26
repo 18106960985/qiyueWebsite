@@ -102,7 +102,7 @@
   .information-box li font {
     display:block;
     float:left;
-    background:#2cc0a7;
+    background:#ff9900;
     line-height:22px;
     color:#fff;
     margin-right:15px;
@@ -118,7 +118,7 @@
     content:'';
     border-style:solid;
     border-width:22px 5px 0 5px;
-    border-color:#2cc0a7 transparent transparent transparent;
+    border-color:#ff9900 transparent transparent transparent;
     top:53px;
     left:33px;
     transform:rotate(-40deg);
@@ -175,14 +175,14 @@
     -webkit-line-clamp:3;
   }
   .information-box li strong {
-    color:#2cc0a7;
+    color:#ff9900;
     font-weight:normal;
     display:block;
     margin-top:13px;
   }
   .information-box li strong i {
   }.information-box li strong a {
-     color:#2cc0a7;
+     color:#ff9900;
      margin-left:6px;
    }
   .information-box li strong a:hover {
