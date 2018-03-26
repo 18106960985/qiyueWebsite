@@ -33,19 +33,24 @@
         </font>
         <!--简介内容-->
         <div>
-          <img class="product-image"  src="https://images.apple.com/cn/apple-watch-series-1/images/hero-and-itemlist/track_and_share_large_2x.jpg"  alt="科技公司网站模板|科技企业网站" style="height:auto;"/>
-
+          <!--产品图片-->
+            <dl >
+              <dt>
+                <img class="product-image"  src="https://images.apple.com/cn/apple-watch-series-1/images/hero-and-itemlist/track_and_share_large_2x.jpg"  alt="科技公司网站模板|科技企业网站" style="height:auto;"/>
+              </dt>
+            </dl>
           <p>
             MetInfo专业为您提供科技企业响应式网站模板整体效果查看，以及科技企业响应式网站模板的在线演示，源码下载，后台管理，及个性化定制服务。白色：白是全部可见光均匀混合而成的，称为全色光，黑色即无光，是无色的色。
             <br>
             整个模板以白色和黑色的极简搭配组合，光感最强，极度简洁分明，又以淡淡的一抹绿色作为点缀，让您的网站充满设计感和科技感。以及充满艺术感的字体，并且网站还支持多种字体切换（微软正黑体，微软雅黑，宋体，黑体，楷体）
           </p>
+
         </div>
         <!--简介footer-->
         <span>
-          <b>标签</b>
+          <b>产品类型</b>
           <svg-icon icon-class="label"></svg-icon>
-          <a> 测试</a>
+          <a> 智能手表</a>
         </span>
       </div>
       <!--产品详情-->
@@ -133,7 +138,7 @@
     -webkit-transition:.3s;
   }
   .banner-click .svg-icon {
-    color:#00dfb9;
+    color:#ff9900;
     font-size:26px;
     position:absolute;
     top:50%;
@@ -144,7 +149,7 @@
     display:block;
     width:50px;
     height:50px;
-    border:3px solid #00dfb9;
+    border:3px solid #ff9900;
     text-align:center;
     line-height:44px;
     border-radius:4px;
@@ -438,7 +443,7 @@
   .product-title:before {
     width:7px;
     height:32px;
-    background:#00dfb9;
+    background:#ff9900;
     border-radius:99px;
     content:'';
     position:absolute;
@@ -476,7 +481,8 @@
   }
   .product-descript div dl {
     float:left;
-    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+    border-left: none;
     padding:0 30px 0 15px;
     margin:10px 0 0 0;
   }
@@ -518,7 +524,7 @@
   }
   .product-descript span a {
     color:#fff;
-    background:#00dfb9;
+    background:#ff9900;
     display:inline-block;
     line-height:26px;
     padding:0 8px;
@@ -587,8 +593,8 @@
   }
 
   .pager li a:hover{
-    color: #00dfb9;
-    border-color: #00dfb9;
+    color: #ff9900;
+    border-color: #ff9900;
   }
 
   .pager li>a, .pager li>span {
@@ -627,7 +633,8 @@
     }
   }
   .product-image{
-
+    width: 230px;
+    height: 230px;
   }
 
 </style>
