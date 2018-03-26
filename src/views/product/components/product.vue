@@ -45,7 +45,7 @@
             productTypeName: '智能通话手表',
             productName: 'appleWatch',
             uri: '#',
-            productImg: 'https://images.apple.com/cn/apple-watch-series-1/images/hero-and-itemlist/track_and_share_large_2x.jpg',
+            productImg: 'https://store.storeimages.cdn-apple.com/8750/as-images.apple.com/is/image/AppleInc/aos/published/images/4/2/42/alu/42-alu-silver-sport-loop-seashell-s3-grid_GEO_CN?wid=540&hei=550&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1504822127068',
             productAlt: 'meta小天才儿童手表',
 
           },
