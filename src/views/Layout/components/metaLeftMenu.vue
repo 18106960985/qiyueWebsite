@@ -14,7 +14,7 @@
       </div>
       <div class="content">
         <ul ref="navBox">
-          <li v-for="item  in ulOptions" ref="targetEle" :class="{active: item.index == active.newIndex}" @mouseenter="setSliderStyle($event.target)" @mouseleave="initSlider">
+          <li v-for="item  in ulOptions" ref="targetEle" :class="{active: item.index == sidebar.index}"  @click="setMenuIndex(item.index)"   @mouseenter="setSliderStyle($event.target)" @mouseleave="initSlider">
             <label :data-index="item.index" >{{item.name}}</label>
             </li>
           <li class="background" :style="{top:slider.top}">
@@ -45,16 +45,13 @@
     export default {
         name: "meta-left-menu",
       props:{
+          //已被vuex托管
           isActive:{
             type:Boolean,
             default:true
           }
       },
-      computed:{
-        ...mapGetters([
-          'sidebar',
-        ])
-      },
+
       data(){
         return{
           //遍历的标题栏样式
@@ -90,23 +87,32 @@
           },
           active:{
             color:"black",
-            newIndex:1,
             oldIndex:1,
           }
         }
       },
-
+      computed:{
+        ...mapGetters([
+          'sidebar',
+        ])
+      },
       methods:{
+          setMenuIndex(index){
+            this.active.oldIndex = this.sidebar.index;
+            this.$store.dispatch('setMenuIndex',index);
+            this.setSliderStyle(this.$refs.targetEle[this.sidebar.index-1]);
+
+          },
           initSlider(){
-            this.active.newIndex = this.active.oldIndex ;
-            this.setSliderStyle(this.$refs.targetEle[this.active.newIndex-1]);
+            this.sidebar.index = this.active.oldIndex ;
+            this.setSliderStyle(this.$refs.targetEle[ this.sidebar.index-1]);
           },
           setSliderStyle(targetEle){
             let startOffset = targetEle.offsetTop,
                 childLabel = targetEle.lastChild;
             //样式变化
             this.slider.top = startOffset+ "px";
-            this.active.newIndex =  childLabel.dataset.index;
+            this.sidebar.index =  childLabel.dataset.index;
           },
       },
       mounted(){
