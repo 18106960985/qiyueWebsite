@@ -15,15 +15,11 @@ Vue.use(Router)
 export const constantRouterMap = [
   {
     path: '',
-    component: _import('Layout/index'),
+    component: _import('Layout/Layout'),
     children: [{
       path: '',
-      component: _import('Layout/index'),
-      name: 'main',
-      children:[{
-        path: '',
-        component: _import('index/index'),
-      }],
+      component: _import('main/index'),
+    
     }]
   },
 ]

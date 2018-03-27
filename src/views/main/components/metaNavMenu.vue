@@ -20,7 +20,7 @@
       <b>0592-7195528</b>
     </div>
     <div class="head-rights">
-      <ol :class="{active:leftMenuIsActive}" @click="changLeftMenu(leftMenuIsActive==true? false : true)">
+      <ol :class="{active:sidebar.opened}" @click="toggleSideBar">
         <li></li>
         <li></li>
         <li></li>
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+  import { mapGetters} from  'vuex'
     export default {
         name: "meta-nav-menu",
         props:{
@@ -44,10 +45,6 @@
               index: 1,
               name: "暂无菜单"
             }
-          },
-          leftMenuIsActive:{
-            type:Boolean,
-            default:false
           }
         },
       data(){
@@ -58,13 +55,28 @@
                },
           }
       },
-
+      computed: {
+        ...mapGetters([
+          'sidebar'
+        ]),
+        nextPage(){
+          let pageNum =this.currentPage;
+          let pageSize = this.ulOptions.length;
+          return pageNum === pageSize ?pageSize:pageNum +1;
+        },
+        prevPage(){
+          let pageNum =this.currentPage;
+          let pageSize = this.ulOptions.length;
+          return pageNum === 1 ? 1 :pageNum -1;
+        }
+      },
        watch:{
-          currentPage:function () {
 
-          }
        },
       methods:{
+        toggleSideBar(){
+          this.$store.dispatch("toggleSideBar");
+        },
         changePage(index) {
           this.$emit("changPage", index);
           this.setSliderStyle(this.$refs.targetEle[index-1]);
@@ -88,20 +100,8 @@
         changLeftMenu(isActive){
           this.$emit("changLeftMenu",isActive);
         }
+      },
 
-      },
-      computed: {
-        nextPage(){
-          let pageNum =this.currentPage;
-          let pageSize = this.ulOptions.length;
-          return pageNum === pageSize ?pageSize:pageNum +1;
-        },
-        prevPage(){
-          let pageNum =this.currentPage;
-          let pageSize = this.ulOptions.length;
-          return pageNum === 1 ? 1 :pageNum -1;
-        }
-      },
       mounted(){
         let _this = this;
         let timer = null;
@@ -156,7 +156,6 @@
           }
         })
         this.initSlider();
-
       }
 
     }

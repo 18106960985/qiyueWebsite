@@ -37,6 +37,7 @@
   </div>
 </template>
 <script>
+
   import MetaPage from '../../components/Carousel/yeCardPage';
   import Carousel from '../Carousel/index';
   import MetaNav from "./components/metaNavMenu";
@@ -57,7 +58,6 @@
       'meta-cooperation': cooperation,
       'meta-about-us': aboutUs,
       'meta-contact': contact
-
     },
     props:{
       leftMenuIsActive:{
@@ -146,6 +146,7 @@
 
     },
     methods: {
+
       changPage(index){
         this.currentPage = index;
       },

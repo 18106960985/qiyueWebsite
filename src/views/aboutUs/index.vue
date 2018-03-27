@@ -61,7 +61,7 @@
   import Swiper from 'swiper'
   import 'swiper/dist/css/swiper.min.css'
     export default {
-        name: "about-index",
+        name: "about-main",
       data(){
           return {
             backgroundImg: 'url('+require('../../assets/background/bg-aboutUs.jpg')+')' ,

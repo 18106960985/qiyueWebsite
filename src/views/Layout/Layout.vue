@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import metaIndex from  "../index/index";
+  import metaIndex from "../main/index";
   import leftMenu from "./components/metaLeftMenu";
 
   import metaDetails from '../companyNews/metaDetails'

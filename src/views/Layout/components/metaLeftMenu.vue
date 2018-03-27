@@ -1,5 +1,5 @@
 <template>
-    <div class="menu-box" :class="{active:isActive}">
+    <div class="menu-box" :class="{active:sidebar.opened}">
       <div class="top">
         <div class="logo-box">
           <a href="#" title="厦门美拓通讯有限公司">
@@ -41,6 +41,7 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
     export default {
         name: "meta-left-menu",
       props:{
@@ -48,6 +49,11 @@
             type:Boolean,
             default:true
           }
+      },
+      computed:{
+        ...mapGetters([
+          'sidebar',
+        ])
       },
       data(){
         return{

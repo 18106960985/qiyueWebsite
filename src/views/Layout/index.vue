@@ -3,7 +3,7 @@
     <!--主体内容区域-->
     <div class="content">
       <!--左侧菜单-->
-      <ye-index   :leftMenuIsActive.sync="leftMenuIsActive"  ></ye-index>
+      <ye-index ></ye-index>
       <!--<test></test>-->
     </div>
     <!--右侧导航栏 需要配置路由-->
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import metaIndex from  "../index/index";
+  import metaIndex from "../main/index";
   import leftMenu from "./components/metaLeftMenu";
 
   import metaDetails from '../companyNews/metaDetails'
@@ -28,8 +28,7 @@
         },
       data(){
           return {
-             leftMenuIsActive:false,
-
+             // leftMenuIsActive:false,  已经移交给vuex托管
 
           }
       },
