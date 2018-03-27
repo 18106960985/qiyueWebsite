@@ -3,9 +3,8 @@
     <!--主体内容区域-->
     <div class="content">
       <!--左侧菜单-->
-      <meta-left-nav-menu :isActive="leftMenuIsActive"></meta-left-nav-menu>
-      <!--<ye-index   :leftMenuIsActive.sync="leftMenuIsActive"  ></ye-index>-->
-      <test></test>
+      <ye-index   :leftMenuIsActive.sync="leftMenuIsActive"  ></ye-index>
+      <!--<test></test>-->
     </div>
     <!--右侧导航栏 需要配置路由-->
 
