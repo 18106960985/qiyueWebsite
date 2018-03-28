@@ -1,7 +1,9 @@
 <!--该布局用于产品列表 新闻资讯的布局基础-->
 
 <template>
+
   <section role="main" class="subpage" :class="{active:sidebar.opened}">
+
     <!--页眉 -->
     <div class="sidebar-header active">
       <!--菜单控制器-->
@@ -25,12 +27,13 @@
     </div>
     <div class="main-box">
       <slot ></slot>
-    </div>
 
+    </div>
     <!--页脚-->
     <footer>
       <p>互联网 版权所有 2008-2016 粤ICP备0123456789-1 </p>
     </footer>
+
   </section>
 </template>
 
@@ -65,6 +68,8 @@
   }
 
    .main-box{
+     height: auto;
+     min-height: 100%;
      overflow: hidden;
      transition: all 0.5s ease 0s;
      z-index: 1;

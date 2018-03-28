@@ -1,13 +1,11 @@
 <!--整体页面布局-->
 <template>
-  <div >
-    <div class="main-container">
+    <div class="app main-container">
       <meta-left-nav-menu :isActive="leftMenuIsActive"></meta-left-nav-menu>
       <keep-alive >
         <router-view></router-view>
       </keep-alive>
     </div>
-  </div>
 </template>
 
 <script>

@@ -4,8 +4,6 @@
     <meta-layout>
        <router-view></router-view>
     </meta-layout>
-
-
   </div>
 
 </template>
