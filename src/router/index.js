@@ -16,12 +16,49 @@ export const constantRouterMap = [
   {
     path: '',
     component: _import('Layout/Layout'),
-    children: [{
-      path: '',
-      component: _import('main/index'),
-    
-    }]
+    children: [
+      {
+        path: '',
+        component: _import('main/index'),
+      },
+      {
+        path:'product',
+        component: _import('product/showproduct/index'),
+      },
+      {
+        path: 'main',
+        component: _import('Layout/index'),
+        children:[
+
+          {
+            path:'product',
+            component: _import('product/showproduct/index'),
+          },
+          {
+            path:'aboutUs',
+            component: _import('aboutUs/aboutUsArticle'),
+          },
+          // {
+          //   path:'product',
+          //   component: _import('product/showproduct/index'),
+          // },
+          // {
+          //   path:'product',
+          //   component: _import('product/showproduct/index'),
+          // },
+          // {
+          //   path:'product',
+          //   component: _import('product/showproduct/index'),
+          // },
+        ],
+      }
+    ]
   },
+  {
+    path: '/test',
+    component: _import('test/test'),
+  },
+
 ]
 
 

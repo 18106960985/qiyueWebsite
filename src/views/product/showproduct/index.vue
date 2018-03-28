@@ -10,8 +10,8 @@
         <!--横幅图片-->
         <div class="met-banner" style="height: auto;">
           <div class="slick-slide">
-            <!--<img class="cover-image"  src="https://images.apple.com/cn/home/images/tier-one-heroes/apple-watch/watch_large_2x.jpg"  alt="科技公司网站模板|科技企业网站" style="height:auto;"/>-->
-            <img class="cover-image"  src="../../../assets/product/img-tempBanner.jpg"  alt="科技公司网站模板|科技企业网站" style="height:auto;"/>
+            <img class="cover-image"  src="https://images.apple.com/cn/home/images/tier-one-heroes/apple-watch/watch_large_2x.jpg"  alt="科技公司网站模板|科技企业网站" style="height:auto;"/>
+            <!--<img class="cover-image"  src="../../../assets/product/img-tempBanner.jpg"  alt="科技公司网站模板|科技企业网站" style="height:auto;"/>-->
 
           </div>
         </div>
@@ -34,11 +34,11 @@
         <!--简介内容-->
         <div>
           <!--产品图片-->
-            <dl >
-              <dt>
-                <img class="product-image"  src="https://images.apple.com/cn/apple-watch-series-1/images/hero-and-itemlist/track_and_share_large_2x.jpg"  alt="科技公司网站模板|科技企业网站" style="height:auto;"/>
-              </dt>
-            </dl>
+            <!--<dl >-->
+              <!--<dt>-->
+                <!--<img class="product-image"  src="https://images.apple.com/cn/apple-watch-series-1/images/hero-and-itemlist/track_and_share_large_2x.jpg"  alt="科技公司网站模板|科技企业网站" style="height:auto;"/>-->
+              <!--</dt>-->
+            <!--</dl>-->
           <p>
             MetInfo专业为您提供科技企业响应式网站模板整体效果查看，以及科技企业响应式网站模板的在线演示，源码下载，后台管理，及个性化定制服务。白色：白是全部可见光均匀混合而成的，称为全色光，黑色即无光，是无色的色。
             <br>
@@ -111,7 +111,7 @@
 
   .banner-content.active {
     max-height: 3000px;
-    transition: max-height ease-in 1s;
+    transition: max-height ease-in .3s;
 
   }
 

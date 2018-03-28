@@ -1302,7 +1302,8 @@ ul {
     width:auto;
     float:none;
   }
-}.sidebar-header {
+}
+.sidebar-header {
    height:70px;
    position:fixed;
    z-index:99999;

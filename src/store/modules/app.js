@@ -20,7 +20,6 @@ const app = {
       state.sidebar.opened = !state.sidebar.opened
     },
     MENU_INDEX: (state,index)=>{
-      console.log(index)
       state.sidebar.index = index;
       Cookies.set('sidebarIndex', index)
 

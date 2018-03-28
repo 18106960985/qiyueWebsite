@@ -15,7 +15,9 @@
       <div class="content">
         <ul ref="navBox">
           <li v-for="item  in ulOptions" ref="targetEle" :class="{active: item.index == sidebar.index}"  @click="setMenuIndex(item.index)"   @mouseenter="setSliderStyle($event.target)" @mouseleave="initSlider">
-            <label :data-index="item.index" >{{item.name}}</label>
+            <label :data-index="item.index" >
+            <router-link to="/main/aboutUs">{{item.name}}</router-link>
+            </label>
             </li>
           <li class="background" :style="{top:slider.top}">
           </li>
