@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 const app = {
   state: {
     sidebar: {
-      opened: Cookies.get('sidebarStatus'),   // 菜单侧边栏 状态
+      opened: !Cookies.get('sidebarStatus') ,   // 菜单侧边栏 状态
       index: Cookies.get('sidebarIndex') || 0 //菜单索引
     },
 
@@ -13,9 +13,9 @@ const app = {
 
     MENU_SIDEBAR: state => {
       if (state.sidebar.opened) {
-        Cookies.set('sidebarStatus', 0)
+        Cookies.set('sidebarStatus', true)
       } else {
-        Cookies.set('sidebarStatus', 1)
+        Cookies.set('sidebarStatus', false)
       }
       state.sidebar.opened = !state.sidebar.opened
     },

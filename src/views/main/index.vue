@@ -42,7 +42,7 @@
   import Carousel from '../Carousel/index';
   import MetaNav from "./components/metaNavMenu";
   import goodsPage from '../product/index'
-  import answer from '../answer/index'
+  import answer from '../solution/index'
   import cooperation from '../cooperation/index'
   import aboutUs from '../aboutUs/index'
   import contact from '../contact/index'

@@ -16,19 +16,12 @@ body {
 }
 a {
   color: #393939;
-}
-a {
   text-decoration: none;
-}
-a {
   background-color: transparent;
 }
+
 h1, h2, h3, h4, h5, h6 {
   text-shadow: none;
-}
-
-p {
-  margin: 0 0 11px;
 }
 
 * {
@@ -37,11 +30,16 @@ p {
   box-sizing: border-box;
 }
 p {
+  margin: 0 0 11px;
   display: block;
   -webkit-margin-before: 1em;
   -webkit-margin-after: 1em;
   -webkit-margin-start: 0px;
   -webkit-margin-end: 0px;
+}
+
+li {
+  list-style-type: none;
 }
 .visible-lg-block,.visible-lg-inline,.visible-lg-inline-block,.visible-md-block,.visible-md-inline,.visible-md-inline-block,.visible-sm-block,.visible-sm-inline,.visible-sm-inline-block,.visible-xs-block,.visible-xs-inline,.visible-xs-inline-block {
   display: none!important

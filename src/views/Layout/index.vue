@@ -2,11 +2,9 @@
   <div class="app">
 
     <meta-layout>
-       <!--<router-view></router-view>-->
-
-
+       <router-view></router-view>
     </meta-layout>
-    <test></test>
+
 
   </div>
 

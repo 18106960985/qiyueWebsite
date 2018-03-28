@@ -16,7 +16,7 @@
         <ul ref="navBox">
           <li v-for="item  in ulOptions" ref="targetEle" :class="{active: item.index == sidebar.index}"  @click="setMenuIndex(item.index)"   @mouseenter="setSliderStyle($event.target)" @mouseleave="initSlider">
             <label :data-index="item.index" >
-            <router-link to="/main/aboutUs">{{item.name}}</router-link>
+            <router-link :to="item.router">{{item.name}}</router-link>
             </label>
             </li>
           <li class="background" :style="{top:slider.top}">
@@ -62,27 +62,24 @@
               {
                 name: "首页",
                 index :1 ,//切换的卡片页面
+                router:'#',
               },
               {
                 name: "产品",
                 index : 2,
+                router: '/main/product',
               },
               {
-                name: "方案",
+                name: "公司动态",
                 index : 3,
+                router: '/main/companyNews',
               },
               {
-                name: "合作",
+                name: "关于美拓",
                 index : 4,
+                router: '/main/aboutUs',
               },
-              {
-                name: "关于",
-                index : 5,
-              },
-              {
-                name: "联系",
-                index: 6,
-              }
+
             ],
           slider:{
             top: "0px",
@@ -124,7 +121,9 @@
 </script>
 
 <style scoped>
-
+  a{
+    text-decoration: none;
+  }
   .menu-box{
     position: fixed;
     width: 240px;

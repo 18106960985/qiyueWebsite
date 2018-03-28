@@ -22,34 +22,26 @@ export const constantRouterMap = [
         component: _import('main/index'),
       },
       {
-        path:'product',
-        component: _import('product/showproduct/index'),
-      },
-      {
         path: 'main',
         component: _import('Layout/index'),
         children:[
 
           {
+            //产品
             path:'product',
-            component: _import('product/showproduct/index'),
+            component: _import('productCenter/index'),
           },
           {
+            //公司咨询
+            path:'companyNews',
+            component: _import('companyNews/index'),
+          },
+          {
+            // 关于 我们
             path:'aboutUs',
             component: _import('aboutUs/aboutUsArticle'),
           },
-          // {
-          //   path:'product',
-          //   component: _import('product/showproduct/index'),
-          // },
-          // {
-          //   path:'product',
-          //   component: _import('product/showproduct/index'),
-          // },
-          // {
-          //   path:'product',
-          //   component: _import('product/showproduct/index'),
-          // },
+
         ],
       }
     ]

@@ -1,12 +1,12 @@
 <!--该布局用于产品列表 新闻资讯的布局基础-->
 
 <template>
-  <section role="main" >
+  <section role="main" class="subpage" :class="{active:sidebar.opened}">
     <!--页眉 -->
     <div class="sidebar-header active">
       <!--菜单控制器-->
-      <div class="sidebar-icon">
-        <svg-icon :icon-class="menuActive  ? 'menu' : 'arrow-left'"></svg-icon>
+      <div class="sidebar-icon" @click="toggleSideBar">
+        <svg-icon :icon-class="sidebar.opened  ? 'arrow-left' : 'menu' "></svg-icon>
       </div>
       <!--标签栏-->
       <div class="sidebar-nav">
@@ -35,13 +35,24 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
     export default {
         name: "content-layout",
       data(){
           return {
-            menuActive: true,
+            // menuActive: true,
           }
       },
+      computed:{
+          ...mapGetters([
+            'sidebar',
+          ]),
+      },
+      methods:{
+        toggleSideBar(){
+          this.$store.dispatch('toggleSideBar');
+        }
+      }
 
     }
 </script>
@@ -93,6 +104,8 @@
   }
 
   footer {
+    /*position:absolute;*/
+    bottom: 0;
     z-index: 1;
     width: 100%;
     height: auto;
@@ -155,7 +168,7 @@
     }
 
     .sidebar-header.active .sidebar-nav>ul>li.active {
-      background: #2cc0a7;
+      background: #ff9900;
     }
 
     .sidebar-header.active .sidebar-nav>ul>li.active>a {
@@ -263,7 +276,7 @@
   }
 
   .sidebar-search i:hover {
-    color: #2cc0a7;
+    color: #ff9900;
     cursor: pointer;
   }
 
@@ -319,7 +332,7 @@
     }
 
     .sidebar-nav>ul>li.active {
-      background: #2cc0a7;
+      background: #ff9900;
       border: 0;
       line-height: 36px;
     }
@@ -454,7 +467,7 @@
       display: block;
       list-style: none;
       margin: 0;
-      background: #2cc0a7;
+      background: #ff9900;
       line-height: 36px;
       padding: 0 15px;
       color: #fff;
@@ -605,7 +618,7 @@
     }
 
     .sidebar-header.active .sidebar-nav>ul>li.active {
-      background: #2cc0a7;
+      background: #ff9900;
     }
 
     .sidebar-header.active .sidebar-nav>ul>li.active>a {
@@ -621,6 +634,10 @@
     }
   }
 
-
+  @media(min-width:1200px) {
+    section[role=main].subpage.active {
+      padding-left: 240px;
+    }
+  }
 
 </style>
