@@ -121,7 +121,7 @@
           timer = setTimeout(function() {
             clearTimeout(timer);
             timer = null;
-          }, 1300);
+          }, 800);
         }
         // pc监听滚轮事件
         if (Object.hasOwnProperty.call(window,'onmousewheel')) {
