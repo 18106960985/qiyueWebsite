@@ -46,7 +46,7 @@
                   </span>
                   <font>
                     <svg-icon icon-class="releaseDate"></svg-icon>
-                   {{ value.title}}
+                   {{ value.releaseDate}}
                   </font>
                 </a>
               </li>
@@ -99,5 +99,7 @@
 </script>
 
 <style scoped>
-
+ a{
+   text-decoration: none;
+ }
 </style>

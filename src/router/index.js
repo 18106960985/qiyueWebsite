@@ -26,13 +26,14 @@ export const constantRouterMap = [
         component: _import('Layout/index'),
         children:[
 
+          // 菜单相关
           {
             //产品
             path:'product',
             component: _import('productCenter/index'),
           },
           {
-            //公司咨询
+            //公司资讯
             path:'companyNews',
             component: _import('companyNews/index'),
           },
@@ -42,10 +43,25 @@ export const constantRouterMap = [
             component: _import('aboutUs/aboutUsArticle'),
           },
 
+          // 具体展示组件
+
+          {
+            //产品
+            path:'showproduct',
+            component: _import('product/showproduct/index'),
+          },
+          {
+            //公司资讯
+            path:'newDetails',
+            component: _import('companyNews/metaDetails'),
+          }
+
+
         ],
       }
     ]
   },
+
   {
     path: '/test',
     component: _import('test/test'),

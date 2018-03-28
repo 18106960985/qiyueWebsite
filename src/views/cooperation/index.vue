@@ -42,59 +42,62 @@
             cooperations:[
               {
                 companyUrl: 'href="http://huawei.com',
-                companyName: '百度百科',
-                companyLogo: 'https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481251701.png',
+                companyName: '华为科技有限公司',
+                companyLogo: require('../../assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
-                companyName: '百度百科',
-                companyLogo: 'https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481251701.png',
+                companyName: '华为科技有限公司',
+                companyLogo: require('../../assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
-                companyName: '百度百科',
-                companyLogo: 'https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481251701.png',
+                companyName: '华为科技有限公司',
+                companyLogo: require('../../assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
-                companyName: '百度百科',
-                companyLogo: 'https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481251701.png',
+                companyName: '华为科技有限公司',
+                companyLogo: require('../../assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
-                companyName: '百度百科',
-                companyLogo: 'https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481251701.png',
+                companyName: '华为科技有限公司',
+                companyLogo: require('../../assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
-                companyName: '百度百科',
-                companyLogo: 'https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481251701.png',
+                companyName: '华为科技有限公司',
+                companyLogo: require('../../assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
-                companyName: '百度百科',
-                companyLogo: 'https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481251701.png',
+                companyName: '华为科技有限公司',
+                companyLogo: require('../../assets/cooperation/huawei.png'),
+              }, {
+                companyUrl: 'href="http://huawei.com',
+                companyName: '华为科技有限公司',
+                companyLogo: require('../../assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
-                companyName: '百度百科',
-                companyLogo: 'https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481251701.png',
+                companyName: '华为科技有限公司',
+                companyLogo: require('../../assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
-                companyName: '百度百科',
-                companyLogo: 'https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481251701.png',
+                companyName: '华为科技有限公司',
+                companyLogo: require('../../assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
-                companyName: '百度百科',
-                companyLogo: 'https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481251701.png',
+                companyName: '华为科技有限公司',
+                companyLogo: require('../../assets/cooperation/huawei.png'),
               },
-              {
-                companyUrl: 'href="http://huawei.com',
-                companyName: '百度百科',
-                companyLogo: 'https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481251701.png',
-              },
+
+
+
+
 
             ],
 

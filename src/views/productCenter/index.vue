@@ -2,20 +2,25 @@
 <!--产品中心 设计  头 脚为公共组件-->
 <template>
     <div class="pro-box">
-      <ul>
+      <ul v-if="proList">
         <!--产品列表-->
-        <li class="case-bin pro" style="width: 320px">
-          <a href="showproduct.php?lang=cn&amp;id=42" title="家居公司，室内设计公司">
+        <li class="case-bin pro" style="width: 320px"  v-for="(value, index) in proList">
+           <router-link to="/main/showproduct" :title="value.description">
             <font>
               <b></b>
-              <img src="https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481290045.jpg?x-oss-process=image/resize,m_fill,h_200,w_320,limit_0" title="家居公司，室内设计公司" alt="家居公司，室内设计公司" data-original="https://images.metinfo.cn/m/M1156008/328/upload/M1156008/328/201612/1481290045.jpg?x-oss-process=image/resize,m_fill,h_200,w_320,limit_0" style="display: block;">
+              <img :src="value.img" :title="value.description" :alt="value.description"   style="display: block;">
             </font>
             <span>
-                <h3>家居公司，室内设计公司</h3>
+                <h3>
+                  {{ value.name}}
+                </h3>
 
-                <p>高端儒雅, 红色点缀, 视频展示, 文化&nbsp;</p>
+                <p>
+                  {{ value.description}}
+                  &nbsp;
+                </p>
               </span>
-          </a>
+            </router-link>
         </li>
       </ul>
     </div>
@@ -27,7 +32,79 @@
         name: "index",
         components:{
           'meta-layoutContent': metaLayoutContent,
-        }
+        },
+      data(){
+          return {
+            proList:[
+              {
+                id:'',
+                typeName: '智能通话手表',
+                name: 'appleWatch',
+                url: '#',
+                img: 'https://store.storeimages.cdn-apple.com/8750/as-images.apple.com/is/image/AppleInc/aos/published/images/4/2/42/alu/42-alu-silver-sport-loop-seashell-s3-grid_GEO_CN?wid=540&hei=550&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1504822127068',
+                description: 'meta小天才儿童手表',
+              },
+              {
+                id:'',
+                typeName: '智能通话手表',
+                name: 'appleWatch',
+                url: '#',
+                img: 'https://store.storeimages.cdn-apple.com/8750/as-images.apple.com/is/image/AppleInc/aos/published/images/4/2/42/alu/42-alu-silver-sport-loop-seashell-s3-grid_GEO_CN?wid=540&hei=550&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1504822127068',
+                description: 'meta小天才儿童手表',
+              },
+              {
+                id:'',
+                typeName: '智能通话手表',
+                name: 'appleWatch',
+                url: '#',
+                img: 'https://store.storeimages.cdn-apple.com/8750/as-images.apple.com/is/image/AppleInc/aos/published/images/4/2/42/alu/42-alu-silver-sport-loop-seashell-s3-grid_GEO_CN?wid=540&hei=550&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1504822127068',
+                description: 'meta小天才儿童手表',
+              },
+              {
+                id:'',
+                typeName: '智能通话手表',
+                name: 'appleWatch',
+                url: '#',
+                img: 'https://store.storeimages.cdn-apple.com/8750/as-images.apple.com/is/image/AppleInc/aos/published/images/4/2/42/alu/42-alu-silver-sport-loop-seashell-s3-grid_GEO_CN?wid=540&hei=550&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1504822127068',
+                description: 'meta小天才儿童手表',
+              }, {
+                id:'',
+                typeName: '智能通话手表',
+                name: 'appleWatch',
+                url: '#',
+                img: 'https://store.storeimages.cdn-apple.com/8750/as-images.apple.com/is/image/AppleInc/aos/published/images/4/2/42/alu/42-alu-silver-sport-loop-seashell-s3-grid_GEO_CN?wid=540&hei=550&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1504822127068',
+                description: 'meta小天才儿童手表',
+              },
+              {
+                id:'',
+                typeName: '智能通话手表',
+                name: 'appleWatch',
+                url: '#',
+                img: 'https://store.storeimages.cdn-apple.com/8750/as-images.apple.com/is/image/AppleInc/aos/published/images/4/2/42/alu/42-alu-silver-sport-loop-seashell-s3-grid_GEO_CN?wid=540&hei=550&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1504822127068',
+                description: 'meta小天才儿童手表',
+              },
+              {
+                id:'',
+                typeName: '智能通话手表',
+                name: 'appleWatch',
+                url: '#',
+                img: 'https://store.storeimages.cdn-apple.com/8750/as-images.apple.com/is/image/AppleInc/aos/published/images/4/2/42/alu/42-alu-silver-sport-loop-seashell-s3-grid_GEO_CN?wid=540&hei=550&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1504822127068',
+                description: 'meta小天才儿童手表',
+              },
+
+              {
+                id:'',
+                typeName: '智能通话手表',
+                name: 'appleWatch',
+                url: '#',
+                img: 'https://store.storeimages.cdn-apple.com/8750/as-images.apple.com/is/image/AppleInc/aos/published/images/4/2/42/alu/42-alu-silver-sport-loop-seashell-s3-grid_GEO_CN?wid=540&hei=550&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1504822127068',
+                description: 'meta小天才儿童手表',
+              },
+
+
+            ],
+          }
+      }
     }
 </script>
 

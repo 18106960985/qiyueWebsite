@@ -14,9 +14,10 @@
       </div>
       <div class="content">
         <ul ref="navBox">
-          <li v-for="item  in ulOptions" ref="targetEle" :class="{active: item.index == sidebar.index}"  @click="setMenuIndex(item.index)"   @mouseenter="setSliderStyle($event.target)" @mouseleave="initSlider">
+          <li v-for="item  in ulOptions" ref="targetEle" :class="{active: item.index == sidebar.index}"  @click="setMenuIndex(item.index) , $router.push(item.router)"   @mouseenter="setSliderStyle($event.target)" @mouseleave="initSlider">
             <label :data-index="item.index" >
-            <router-link :to="item.router">{{item.name}}</router-link>
+            <!--<router-link :to="item.router">{{item.name}}</router-link>-->
+              {{item.name}}
             </label>
             </li>
           <li class="background" :style="{top:slider.top}">
@@ -62,7 +63,7 @@
               {
                 name: "首页",
                 index :1 ,//切换的卡片页面
-                router:'#',
+                router:'/#',
               },
               {
                 name: "产品",

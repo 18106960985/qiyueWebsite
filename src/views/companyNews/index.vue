@@ -5,9 +5,11 @@
       <ul class="met-page-ajax" v-if="newList">
         <li class=" news_img news-bin" v-for="(value,index) in newList">
           <!--左边图片-->
-          <a :href="value.routerPath" class="image left" >
+          <!--<a :href="value.routerPath" class="image left" >-->
+          <router-link to="/main/newDetails" class="image left">
             <img class="media-object" :src="value.imageUrl" :title="value.title" :alt="value.title">
-          </a>
+          </router-link>
+          <!--</a>-->
           <span>
            <b>
              <!--发布日期-->
@@ -24,14 +26,14 @@
             <p>
               {{ value.introduction}}
             </p>
-           <a :src="value.imageUrl" :title="value.title" :alt="value.title" class="more">
-             <i>查看文章</i>
-           </a>
+             <router-link to="/main/newDetails" :title="value.title" :alt="value.title" class="more">
+               <i>查看文章</i>
+             </router-link>
          </span>
           <!--右边图片-->
-          <a :href="value.routerPath" class="image right" >
+            <router-link to="/main/newDetails" class="image right">
             <img class="media-object" :src="value.imageUrl" :title="value.title" :alt="value.title">
-          </a>
+            </router-link>
         </li>
       </ul>
     </div>
@@ -45,6 +47,7 @@
           return {
             newList:[
               {
+                id: '',
                 imageUrl:require('../../assets/information/thumb.jpg' ),
                 releaseDate: '2018-03-24',
                 seenNum: 299,
@@ -54,6 +57,7 @@
                 routerPath:'#'
               },
               {
+                id: '',
                 imageUrl:require('../../assets/information/thumb.jpg' ),
                 releaseDate: '2018-03-24',
                 seen: 299,

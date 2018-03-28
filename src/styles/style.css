@@ -1229,7 +1229,7 @@ ul {
   position:absolute;
   height:2px;
   width:80px;
-  background:#00dfb9;
+  background:#ff9900;
   bottom:-2px;
   left:0;
 }
@@ -1243,6 +1243,10 @@ ul {
   clear:both;
   display:table;
   content:'';
+}
+
+.information-hots li:hover span{
+  color: #ff9900;
 }
 .information-hots li img {
   width:100px;
