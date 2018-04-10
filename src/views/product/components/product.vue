@@ -63,7 +63,6 @@
     methods:{
       getProductList(){
         getProductList(0).then( res=>{
-          console.log(res.data.data.rows)
           this.proList = res.data.data.rows;
 
         })
