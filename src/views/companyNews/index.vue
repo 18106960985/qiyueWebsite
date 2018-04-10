@@ -6,67 +6,60 @@
         <li class=" news_img news-bin" v-for="(value,index) in newList">
           <!--左边图片-->
           <!--<a :href="value.routerPath" class="image left" >-->
-          <router-link to="/main/newDetails" class="image left">
-            <img class="media-object" :src="value.imageUrl" :title="value.title" :alt="value.title">
+          <router-link :to="'/main/newDetails/'+value.id" class="image left">
+            <img class="media-object" :src="value.imgPath" :title="value.title" :alt="value.title">
           </router-link>
           <!--</a>-->
           <span>
            <b>
              <!--发布日期-->
              <svg-icon icon-class="releaseDate"></svg-icon>
-              {{value.releaseDate}}
+              {{value.displayTime}}
              <!--看过人数-->
              <svg-icon icon-class="eye"></svg-icon>
-             {{value.seenNum}}
+             {{value.readingNum}}
            </b>
           <!--标题-->
           <a class="name">
             {{value.title}}
           </a>
             <p>
-              {{ value.introduction}}
+              {{ value.introduce}}
             </p>
-             <router-link to="/main/newDetails" :title="value.title" :alt="value.title" class="more">
+             <router-link :to="'/main/newDetails/'+value.id" :title="value.title" :alt="value.title" class="more">
                <i>查看文章</i>
              </router-link>
          </span>
           <!--右边图片-->
-            <router-link to="/main/newDetails" class="image right">
-            <img class="media-object" :src="value.imageUrl" :title="value.title" :alt="value.title">
+            <router-link :to="'/main/newDetails/'+value.id" class="image right">
+            <img class="media-object" :src="value.imgPath" :title="value.title" :alt="value.title">
             </router-link>
         </li>
       </ul>
+      <div v-else> 暂无资讯</div>
     </div>
   </div>
 </template>
 
 <script>
+  import {getAll} from '@/api/information/index'
     export default {
         name: "index",
       data(){
           return {
-            newList:[
-              {
-                id: '',
-                imageUrl:require('../../assets/information/thumb.jpg' ),
-                releaseDate: '2018-03-24',
-                seenNum: 299,
-                title: ' 其实，我觉得吧压力也没那么大！',
-                introduction:'其实，设计LOGO并不难！用对工具，你也可以成为设计师！Logo是一个企业丶团体丶组织或独立个体的视觉识别形象代表。 通常是人们一眼看见所产生的第一印象，因此如何创造出一个令人印象深刻的logo，来帮助您建立您心目中所期望塑造的品牌形象是一门大学问。一个好的logo对于一个品牌打入市场的成功与否，扮演着举足轻重的脚色。因此投入足够的时间来绞尽脑汁，设计出一个独一无二的logo是不可避免的过程。在开始',
-                content:'',
-                routerPath:'#'
-              },
-              {
-                id: '',
-                imageUrl:require('../../assets/information/thumb.jpg' ),
-                releaseDate: '2018-03-24',
-                seen: 299,
-                title: ' 其实，我觉得吧压力也没那么大！',
-                introduction:'其实，设计LOGO并不难！用对工具，你也可以成为设计师！Logo是一个企业丶团体丶组织或独立个体的视觉识别形象代表。 通常是人们一眼看见所产生的第一印象，因此如何创造出一个令人印象深刻的logo，来帮助您建立您心目中所期望塑造的品牌形象是一门大学问。一个好的logo对于一个品牌打入市场的成功与否，扮演着举足轻重的脚色。因此投入足够的时间来绞尽脑汁，设计出一个独一无二的logo是不可避免的过程。在开始',
-                content:'',
-                routerPath:'#'
-              },
-            ],
+            newList:[],
+          }
+      },
+      created(){
+        this.getAll();
+      },
+      methods:{
+          getAll(){
+            getAll().then( res =>{
+              if(res.data.rel){
+                this.newList = res.data.data;
+              }
+            })
           }
       }
     }

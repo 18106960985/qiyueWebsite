@@ -14,22 +14,28 @@
             <em>
               <u>阅读</u>
               <svg-icon icon-class="eye"></svg-icon>
-              {{ currentArticle.seenNum}}
+              {{ currentArticle.readingNum}}
               &nbsp;·&nbsp;
               <u>发布日期</u>
               <svg-icon icon-class="releaseDate"></svg-icon>
-              {{ currentArticle.releaseDate}}
+              {{ currentArticle.displayTime}}
               &nbsp;·&nbsp;
               <svg-icon icon-class="author"></svg-icon>
-              普京
+              {{ currentArticle.author}}
+              &nbsp;
+              <div v-if="currentArticle.sourceName" style="display: inline">
+                ·&nbsp;
+                <u>文章来源</u>
+                <svg-icon icon-class="author"></svg-icon>
+                {{ currentArticle.sourceName}}
+              </div>
+
             </em>
           </div>
 
           <!--文章内容-->
           <div class="information-content">
-            <div>
-             {{currentArticle.content}}
-            </div>
+            <div v-html="currentArticle.detail"></div>
           </div>
         </div>
 
@@ -39,16 +45,17 @@
             <h3>为您推荐</h3>
             <ul v-if="recommends">
               <li v-for="value in recommends">
-                <a :href="value.routerPath" :title="value.title" :alt="value.title">
-                  <img :src="value.imageUrl" :title="value.title" :alt="value.title"  style="display: block;">
+                <router-link :to="'/main/newDetails/'+value.id"   :title="value.title" :alt="value.title">
+                  <img :src="value.imgPath" :title="value.title" :alt="value.title"  style="display: block;">
                   <span>
                     {{value.title}}
                   </span>
                   <font>
                     <svg-icon icon-class="releaseDate"></svg-icon>
-                   {{ value.releaseDate}}
+                    {{ value.introduce | introduceFilter}}
                   </font>
-                </a>
+                </router-link>
+
               </li>
             </ul>
           </div>
@@ -59,40 +66,50 @@
 </template>
 
 <script>
-    export default {
+  import {getObj,getRecommends} from '@/api/information/index'
+
+  export default {
         name: "metaDetails",
+      props:{
+        id:String,
+      },
       data(){
         return {
-          currentArticle:{
-            imageUrl:require('../../assets/information/thumb.jpg' ),
-            releaseDate: '2018-03-24',
-            seenNum: 299,
-            title: ' 其实，我觉得吧压力也没那么大！',
-            introduction:'其实，设计LOGO并不难！用对工具，你也可以成为设计师！Logo是一个企业丶团体丶组织或独立个体的视觉识别形象代表。 通常是人们一眼看见所产生的第一印象，因此如何创造出一个令人印象深刻的logo，来帮助您建立您心目中所期望塑造的品牌形象是一门大学问。一个好的logo对于一个品牌打入市场的成功与否，扮演着举足轻重的脚色。因此投入足够的时间来绞尽脑汁，设计出一个独一无二的logo是不可避免的过程。在开始',
-            content:'其实，设计LOGO并不难！用对工具，你也可以成为设计师！Logo是一个企业丶团体丶组织或独立个体的视觉识别形象代表。 通常是人们一眼看见所产生的第一印象，因此如何创造出一个令人印象深刻的logo，来帮助您建立您心目中所期望塑造的品牌形象是一门大学问。一个好的logo对于一个品牌打入市场的成功与否，扮演着举足轻重的脚色。因此投入足够的时间来绞尽脑汁，设计出一个独一无二的logo是不可避免的过程。在开始',
+          currentArticle:{},
+          recommends:[],
+        }
+      },
+      created(){
+        this.getRecommends();
+        this.getObj();
+      },
+      filters:{
+        introduceFilter(val){
+          if(val.length >9){
+            return val.substring(0,9)+'……';
+          }
+        return val;
+        }
+      },
+      watch:{
+        id(){
+          this.getObj();
+        }
+      },
+      methods:{
+        getObj(){
+          getObj(this.id).then(res=>{
+            if(res.data.rel){
+              this.currentArticle = res.data.data;
+            }
+          })
+        },
+        getRecommends(){
+          getRecommends().then(res=>{
 
-            routerPath:'#'
-          },
-          recommends:[
-            {
-              imageUrl:require('../../assets/information/thumb.jpg' ),
-              releaseDate: '2018-03-24',
-              seenNum: 299,
-              title: ' 其实，我觉得吧压力也没那么大！',
-              introduction:'其实，设计LOGO并不难！用对工具，你也可以成为设计师！Logo是一个企业丶团体丶组织或独立个体的视觉识别形象代表。 通常是人们一眼看见所产生的第一印象，因此如何创造出一个令人印象深刻的logo，来帮助您建立您心目中所期望塑造的品牌形象是一门大学问。一个好的logo对于一个品牌打入市场的成功与否，扮演着举足轻重的脚色。因此投入足够的时间来绞尽脑汁，设计出一个独一无二的logo是不可避免的过程。在开始',
-              content:'其实，设计LOGO并不难！用对工具，你也可以成为设计师！Logo是一个企业丶团体丶组织或独立个体的视觉识别形象代表。 通常是人们一眼看见所产生的第一印象，因此如何创造出一个令人印象深刻的logo，来帮助您建立您心目中所期望塑造的品牌形象是一门大学问。一个好的logo对于一个品牌打入市场的成功与否，扮演着举足轻重的脚色。因此投入足够的时间来绞尽脑汁，设计出一个独一无二的logo是不可避免的过程。在开始',
-              routerPath:'#'
-            },
-            {
-              imageUrl:require('../../assets/information/thumb.jpg' ),
-              releaseDate: '2018-03-24',
-              seenNum: 299,
-              title: ' 其实，我觉得吧压力也没那么大！',
-              introduction:'其实，设计LOGO并不难！用对工具，你也可以成为设计师！Logo是一个企业丶团体丶组织或独立个体的视觉识别形象代表。 通常是人们一眼看见所产生的第一印象，因此如何创造出一个令人印象深刻的logo，来帮助您建立您心目中所期望塑造的品牌形象是一门大学问。一个好的logo对于一个品牌打入市场的成功与否，扮演着举足轻重的脚色。因此投入足够的时间来绞尽脑汁，设计出一个独一无二的logo是不可避免的过程。在开始',
-              content:'',
-              routerPath:'#'
-            },
-          ],
+              this.recommends = res.data.data.rows;
+
+          });
         }
       }
     }

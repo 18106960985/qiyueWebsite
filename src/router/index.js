@@ -52,8 +52,9 @@ export const constantRouterMap = [
           },
           {
             //公司资讯
-            path:'newDetails',
+            path:'newDetails/:id',
             component: _import('companyNews/metaDetails'),
+            props: true,
           }
 
 

@@ -10,7 +10,22 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api':{
+        target: 'http://localhost:8765',
+        pathRewrite: {
+          '^/api': '/api'
+        },
+      },
+      '/official': {
+        target: 'http://download.meta.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/official': '/official'
+        },
+      }
+
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
