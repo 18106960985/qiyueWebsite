@@ -1,18 +1,20 @@
 <template>
-  <div   v-if="temps" >
+  <div   v-if="proList" >
     <div class="case-box "   style="cursor: -webkit-grab;">
       <ul class="case-cut ">
-        <li class="case-bin"  v-for="(value,index) of temps"   >
-          <a :title="value.productName">
-            <font>
+        <li class="case-bin"  v-for="(value,index) of proList"   >
+          <router-link :to="'/main/showproduct/'+value.id" :title="value.introduce">
+          <font>
               <b></b>
-              <img class="" :title="value.productName" alt="浙江晨丰科技股份有限公司" :src="value.productImg">
+              <img class="" :title="value.name" :alt="value.name" :src="value.smallImgPath">
             </font>
             <span>
-              <h3>{{value.productTypeName}}</h3>
-                  <p>{{value.productName}}</p>
+              <h3>{{value.name}}</h3>
+                  <p>
+                   {{ value.introduce | introduceFilter}}
+                  </p>
               </span>
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -32,6 +34,7 @@
 </template>
 
 <script>
+  import {getProductList} from '@/api/product/detailsIndex'
   import Swiper from 'swiper'
   import 'swiper/dist/css/swiper.min.css';
   export default {
@@ -39,39 +42,32 @@
 
     data() {
       return {
-        goods: null,
-        temps:[
-          {
-            productTypeName: '智能通话手表',
-            productName: 'appleWatch',
-            uri: '#',
-            productImg: 'https://store.storeimages.cdn-apple.com/8750/as-images.apple.com/is/image/AppleInc/aos/published/images/4/2/42/alu/42-alu-silver-sport-loop-seashell-s3-grid_GEO_CN?wid=540&hei=550&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1504822127068',
-            productAlt: 'meta小天才儿童手表',
 
-          },
-          {
-            productTypeName: '智能通话手表',
-            productName: 'appleWatch SERIES 3 GPS ',
-            uri: '#',
-            productImg: 'https://store.storeimages.cdn-apple.com/8750/as-images.apple.com/is/image/AppleInc/aos/published/images/4/2/42/alu/42-alu-silver-sport-loop-seashell-s3-grid_GEO_CN?wid=540&hei=550&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1504822127068',
-            productAlt: 'meta小天才儿童手表',
-
-          },
-          {
-            productTypeName: '智能通话手表',
-            productName: 'appleWatch SERIES 3 GPS + 蜂窝网络',
-            uri: '#',
-            productImg: ' https://store.storeimages.cdn-apple.com/8750/as-images.apple.com/is/image/AppleInc/aos/published/images/4/2/42/alu/42-alu-space-sport-gray-nc-s3-grid_GEO_CN?wid=540&hei=550&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1507146734887',
-            productAlt: 'meta小天才儿童手表',
-
-          },
-
-        ],
+        proList:[],
       }
+    },
+
+    created(){
+      this.getProductList();
     },
     computed: {
     },
+    filters:{
+      introduceFilter( val){
+        if(val.length > 25){
+          return val.substring(0,25)+'……';
+        }
+        return val;
+      }
+    },
     methods:{
+      getProductList(){
+        getProductList(0).then( res=>{
+          console.log(res.data.data.rows)
+          this.proList = res.data.data.rows;
+
+        })
+      }
     },
     mounted() {
       let mySwiper = new Swiper('.case-box',{

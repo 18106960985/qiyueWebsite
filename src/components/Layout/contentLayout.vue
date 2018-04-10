@@ -12,10 +12,16 @@
       </div>
       <!--标签栏-->
       <div class="sidebar-nav">
-        <ol>全部</ol>
+        <!--对应不同大小的菜单栏-->
+        <ol>全部 </ol>
         <ul>
-          <li class="active">
-            <a>全部</a>
+          <li :class="{active:navActive == -1}" @click="navActive=-1">
+            <router-link to="/main/product/"> 全部</router-link>
+          </li>
+          <li v-for="(value,index) in sidebarNav" :class="{active:navActive == index}" @click="navActive=index">
+            <router-link :to="'/main/product/'+value.id" >
+              {{value.label}}
+            </router-link>
           </li>
         </ul>
       </div>
@@ -38,13 +44,21 @@
 </template>
 
 <script>
+  import eventHub from '@/eventHub/eventHub'
   import { mapGetters } from 'vuex'
+  import {getTree} from '@/api/product/index'
     export default {
         name: "content-layout",
       data(){
           return {
-            // menuActive: true,
+            sidebarNav:[],
+            navActive:-1,
           }
+      },
+      created(){
+        eventHub.$on('getNav',()=>{
+          this.getNav();
+        })
       },
       computed:{
           ...mapGetters([
@@ -52,9 +66,16 @@
           ]),
       },
       methods:{
-        toggleSideBar(){
-          this.$store.dispatch('toggleSideBar');
-        }
+          getNav(){
+            getTree().then(res =>{
+              if(res.data.rel){
+                this.sidebarNav = res.data.data[0].children
+              }
+            })
+          },
+          toggleSideBar(){
+            this.$store.dispatch('toggleSideBar');
+          }
       }
 
     }

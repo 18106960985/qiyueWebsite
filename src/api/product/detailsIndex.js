@@ -15,6 +15,14 @@ export function page(query){
   })
 }
 
+export function getProductList(id){
+  return request({
+    url: API +"getProductList",
+    method: "get",
+    params:{id:id}
+  })
+}
+
 
 export function addObj(obj) {
   return request({

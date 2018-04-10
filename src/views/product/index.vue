@@ -17,7 +17,10 @@
 
            <!--more-->
           <div class="case-more">
-            <a title="更多产品"  @click="currentPage++">MORE</a>
+            <!--<a   @click="currentPage++">MORE</a>-->
+            <router-link  title="更多产品" to="/main/product/">
+              MORE
+            </router-link>
           </div>
       </div>
     </div>

@@ -18,7 +18,7 @@ module.exports = {
         },
       },
       '/official': {
-        target: 'http://download.meta.com',
+        target: 'http://test-download.meta.net.cn',
         changeOrigin: true,
         pathRewrite: {
           '^/official': '/official'

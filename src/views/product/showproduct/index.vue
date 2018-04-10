@@ -1,6 +1,6 @@
 <!-- 展示产品文章-->
 <template>
-    <div>
+    <div >
       <!--产品横幅 页眉-->
       <div class="banner-content"  :class="{active : isActive}" @click="isActive=isActive?false:true">
         <!--遮盖层 -->
@@ -10,8 +10,7 @@
         <!--横幅图片-->
         <div class="met-banner" style="height: auto;">
           <div class="slick-slide">
-            <img class="cover-image"  src="https://images.apple.com/cn/home/images/tier-one-heroes/apple-watch/watch_large_2x.jpg"  alt="科技公司网站模板|科技企业网站" style="height:auto;"/>
-            <!--<img class="cover-image"  src="../../../assets/product/img-tempBanner.jpg"  alt="科技公司网站模板|科技企业网站" style="height:auto;"/>-->
+            <img class="cover-image"  src="https://images.apple.com/cn/home/images/tier-one-heroes/apple-watch/watch_large_2x.jpg"  :alt="detail.name" style="height:auto;"/>
 
           </div>
         </div>
@@ -23,13 +22,18 @@
       <!--产品简介-->
       <div class="product-descript">
         <!--标题-->
-        <h3>科技公司网站模板|科技企业网站</h3>
+        <h3>
+          {{detail.name}}
+        </h3>
         <!--文章关注的信息-->
-        <font>阅读
-          <svg-icon icon-class="eye"></svg-icon>
-          1123 · 发布日期
+        <font>
+          <!--阅读-->
+          <!--<svg-icon icon-class="eye"></svg-icon>-->
+          <!--{{detail.readingNum}}-->
+          <!--· -->
+          发布日期
           <svg-icon icon-class="releaseDate"></svg-icon>
-          2016-12-10 09:01:36
+          {{detail.crtTime}}
         </font>
         <!--简介内容-->
         <div>
@@ -40,9 +44,7 @@
               <!--</dt>-->
             <!--</dl>-->
           <p>
-            MetInfo专业为您提供科技企业响应式网站模板整体效果查看，以及科技企业响应式网站模板的在线演示，源码下载，后台管理，及个性化定制服务。白色：白是全部可见光均匀混合而成的，称为全色光，黑色即无光，是无色的色。
-            <br>
-            整个模板以白色和黑色的极简搭配组合，光感最强，极度简洁分明，又以淡淡的一抹绿色作为点缀，让您的网站充满设计感和科技感。以及充满艺术感的字体，并且网站还支持多种字体切换（微软正黑体，微软雅黑，宋体，黑体，楷体）
+            {{detail.introduce}}
           </p>
 
         </div>
@@ -50,7 +52,7 @@
         <span>
           <b>产品类型</b>
           <svg-icon icon-class="label"></svg-icon>
-          <a> 智能手表</a>
+          <a> {{detail.label}}</a>
         </span>
       </div>
       <!--产品详情-->
@@ -58,40 +60,118 @@
         产品详情
       </div>
       <!--产品详情信息-->
-      <div class="product-content">
-        <!--测试数据-->
-        <div>
-          <p style="text-align: center;">
-            <img style="border: 15px solid rgb(255, 255, 255); display: inline; height: auto;" class="" data-original="http://www.metinfo.cn/upload/201608/1471509542824105.png" alt="图片关键词" src="http://www.metinfo.cn/upload/201608/1471509542824105.png"></p>
-        </div>
+      <div class="product-content" v-html="detail.details">
+
       </div>
       <!--分页-->
       <div class="page-main">
         <ul class="pager pager-round">
-          <li class="previous ">
-            <a href="showproduct.php?lang=cn&amp;id=42" title="家居公司，室内设计公司">
+          <li class="previous"  v-if="previous">
+            <router-link :to="'/main/showproduct/'+previous.id" :title="previous.name" redirect>
               上一篇
-              <span aria-hidden="true" class="hidden-xs">：家居公司，室内设计公司</span>
+              <span aria-hidden="true" class="hidden-xs">：{{previous.name}}</span>
+            </router-link>
+          </li>
+          <li class="previous" v-else>
+            <a >
+              上一篇
+              <span aria-hidden="true" class="hidden-xs">：被风刮跑了!</span>
             </a>
           </li>
-          <li class="next ">
-            <a href="showproduct.php?lang=cn&amp;id=44" title="日用品销售公司响应式网站模板">
+
+          <li class="next " v-if="next">
+            <router-link :to="'/main/showproduct/'+next.id" :title="next.name">
               下一篇
-              <span aria-hidden="true" class="hidden-xs">：日用品销售公司响应式网站模板</span>
+              <span aria-hidden="true" class="hidden-xs">：{{next.name}}</span>
+            </router-link>
+          </li>
+          <li class="next " v-else>
+            <a >
+              下一篇
+              <span aria-hidden="true" class="hidden-xs">：被风刮跑了!</span>
             </a>
           </li>
+
         </ul>
       </div>
 
+        <back-to-top transitionName="fade" :customStyle="myBackToTopStyle" :visibilityHeight="300" :backPosition="50" ref="toTop"></back-to-top>
     </div>
 </template>
 
 <script>
+  import BackToTop from '@/components/BackToTop'
+  import {getObj,page} from '@/api/product/detailsIndex'
     export default {
         name: "index",
+      components:{
+        BackToTop,
+      },
+      props:{
+        id:String,
+        typeId:String,
+      },
       data(){
           return {
+            myBackToTopStyle: {
+              right: '50px',
+              bottom: '180px',
+              width: '40px',
+              height: '40px',
+              'border-radius': '4px',
+              'line-height': '45px', // 请保持与高度一致以垂直居中 Please keep consistent with height to center vertically
+              background: '#e7eaf1'// 按钮的背景颜色 The background color of the button
+            },
             isActive: false,
+            detail:{},
+            query:{
+              filters:'',
+              sort:'',
+              page:1,
+              limit:1,
+            },
+            previous:{},
+            next:{},
+          }
+      },
+      created(){
+
+        this.getObj();
+      },
+      filters:{
+
+      },
+      watch:{
+          // id(){
+          //   this.getObj();
+          // },
+        '$route':'getObj',//监听路由
+
+      },
+      methods:{
+          getObj(){
+            if(this.$refs.toTop) this.$refs.toTop.backToTop();
+            getObj(this.id).then(res=>{
+              if(res.data.rel){
+                this.detail = res.data.data;
+                this.previousPage();
+              }
+            })
+
+
+          },
+          previousPage(){
+            this.query.filters = "GT_id="+this.id;
+            page(this.query).then(res=>{
+            this.previous = res.data.data.rows[0];
+              this.nextPage();
+            })
+          },
+          nextPage(){
+            this.query.filters = "LT_id="+this.id;
+            page(this.query).then(res=>{
+              this.next = res.data.data.rows[0];
+            })
           }
       }
     }

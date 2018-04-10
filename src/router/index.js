@@ -31,6 +31,14 @@ export const constantRouterMap = [
             //产品
             path:'product',
             component: _import('productCenter/index'),
+            props: true,
+          },
+          // 菜单相关
+          {
+            //产品
+            path:'product/:id',
+            component: _import('productCenter/index'),
+            props: true,
           },
           {
             //公司资讯
@@ -47,8 +55,9 @@ export const constantRouterMap = [
 
           {
             //产品
-            path:'showproduct',
+            path:'showproduct/:id',
             component: _import('product/showproduct/index'),
+            props: true,
           },
           {
             //公司资讯
