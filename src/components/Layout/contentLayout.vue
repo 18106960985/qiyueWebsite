@@ -56,6 +56,9 @@
           }
       },
       created(){
+        eventHub.$on('cleanNav',()=>{
+          this.sidebarNav = [];
+        })
         eventHub.$on('getNav',()=>{
           this.getNav();
         })

@@ -83,9 +83,9 @@
         name: "index",
       data(){
         return {
-          backgroundImg: 'url('+require('../../assets/background/bg-bg-contactUs.jpg')+')' ,
+          backgroundImg: 'url('+require('@/assets/background/bg-bg-contactUs.jpg')+')' ,
           contactInfo:{
-             QR_code: 'http://www.goomay.com/upload/201704/1493349544.png',
+             QR_code: 'url('+require('@/assets/QR_code/1493349544.png')+')' ,
             telephone: '0592-1234567',
             hint:'扫码关注美拓微信公众号获取第一资讯',
             location: '中国·厦门创业园',

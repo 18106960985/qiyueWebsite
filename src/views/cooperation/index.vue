@@ -38,61 +38,61 @@
         name: "index",
       data(){
           return {
-            backgroundImg: 'url('+require('../../assets/background/bg-cooperation.jpg')+')' ,
+            backgroundImg: 'url('+require('@/assets/background/bg-cooperation.jpg')+')' ,
             cooperations:[
               {
                 companyUrl: 'href="http://huawei.com',
                 companyName: '华为科技有限公司',
-                companyLogo: require('../../assets/cooperation/huawei.png'),
+                companyLogo: require('@/assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
                 companyName: '华为科技有限公司',
-                companyLogo: require('../../assets/cooperation/huawei.png'),
+                companyLogo: require('@/assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
                 companyName: '华为科技有限公司',
-                companyLogo: require('../../assets/cooperation/huawei.png'),
+                companyLogo: require('@/assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
                 companyName: '华为科技有限公司',
-                companyLogo: require('../../assets/cooperation/huawei.png'),
+                companyLogo: require('@/assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
                 companyName: '华为科技有限公司',
-                companyLogo: require('../../assets/cooperation/huawei.png'),
+                companyLogo: require('@/assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
                 companyName: '华为科技有限公司',
-                companyLogo: require('../../assets/cooperation/huawei.png'),
+                companyLogo: require('@/assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
                 companyName: '华为科技有限公司',
-                companyLogo: require('../../assets/cooperation/huawei.png'),
+                companyLogo: require('@/assets/cooperation/huawei.png'),
               }, {
                 companyUrl: 'href="http://huawei.com',
                 companyName: '华为科技有限公司',
-                companyLogo: require('../../assets/cooperation/huawei.png'),
+                companyLogo: require('@/assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
                 companyName: '华为科技有限公司',
-                companyLogo: require('../../assets/cooperation/huawei.png'),
+                companyLogo: require('@/assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
                 companyName: '华为科技有限公司',
-                companyLogo: require('../../assets/cooperation/huawei.png'),
+                companyLogo: require('@/assets/cooperation/huawei.png'),
               },
               {
                 companyUrl: 'href="http://huawei.com',
                 companyName: '华为科技有限公司',
-                companyLogo: require('../../assets/cooperation/huawei.png'),
+                companyLogo: require('@/assets/cooperation/huawei.png'),
               },
 
 

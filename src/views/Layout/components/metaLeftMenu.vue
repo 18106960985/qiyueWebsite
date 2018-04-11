@@ -3,12 +3,12 @@
       <div class="top">
         <div class="logo-box">
           <a href="#" title="厦门美拓通讯有限公司">
-            <img src="http://www.goomay.com/upload/201704/1491379886.png"/>
+            <img :src="require('@/assets/logo/1491379886.png')"/>
           </a>
         </div>
         <div class="QRcode-box">
          <p>
-           <img src="http://www.goomay.com/upload/201704/1493349544.png"/>
+           <img :src="require('@/assets/QR_code/1493349544.png')"/>
          </p>
         </div>
       </div>

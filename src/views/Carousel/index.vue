@@ -45,7 +45,7 @@
                 isCenter: true,
                 direction:"x",
                 style:{
-                  backgroundImage: 'url('+ require('../../assets/background/bg-bg-contactUs.jpg')+')',
+                  backgroundImage: 'url('+ require('@/assets/background/bg-bg-contactUs.jpg')+')',
                   // width:'100%',
                   // height:'100%',
                   // position: 'relative',
@@ -60,7 +60,7 @@
               //背景图片
               // 内联样式
               style:{
-                backgroundImage: "url('https://images.apple.com/v/mac/home/y/images/home/imac_pro_large_2x.jpg'",
+                backgroundImage: 'url('+ require('@/assets/background/imac_pro_large_2x.jpg')+')',
                 backgroundSize:"50% 100%",
                 backgroundPosition: "center",
               },
@@ -74,7 +74,7 @@
               background: '#fff',
               color: '#fff',
               style:{
-                backgroundImage: "url('https://images.apple.com/v/supplier-responsibility/overview/b/images/overview/hero2_large_2x.jpg'",
+                backgroundImage: 'url('+ require('@/assets/background/hero2_large_2x.jpg')+')',
                 width:'100%',
                 height:'100%',
                 position: 'relative',
@@ -87,7 +87,7 @@
               background: '#fafafa',
               color: '#fff',
               style:{
-                backgroundImage: "url('https://images.apple.com/cn/home/images/tier-one-heroes/apple-watch/watch_large_2x.jpg'",
+                backgroundImage: 'url('+ require('@/assets/background/watch_large_2x.jpg')+')',
                 backgroundSize:"50% 50%",
                 backgroundPosition: "center",
               },

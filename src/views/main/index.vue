@@ -81,7 +81,6 @@
           color: '#fff',
           isCenter: false,
           direction:"y",
-          bimgSrc:"https://images.apple.com/v/mac/home/y/images/home/imac_pro_large_2x.jpg",
         }, {
           background: '#fff',
           color: '#fff',

@@ -42,6 +42,7 @@
 </template>
 
 <script>
+  import eventHub from '@/eventHub/eventHub'
   import {getAll} from '@/api/information/index'
     export default {
         name: "index",
@@ -52,6 +53,7 @@
       },
       created(){
         this.getAll();
+        this.cleanNav();
       },
       methods:{
           getAll(){
@@ -60,7 +62,10 @@
                 this.newList = res.data.data;
               }
             })
-          }
+          },
+        cleanNav(){
+            eventHub.$emit('cleanNav');
+        }
       }
     }
 </script>

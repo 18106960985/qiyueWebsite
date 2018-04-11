@@ -10,7 +10,7 @@
         <!--横幅图片-->
         <div class="met-banner" style="height: auto;">
           <div class="slick-slide">
-            <img class="cover-image"  src="https://images.apple.com/cn/home/images/tier-one-heroes/apple-watch/watch_large_2x.jpg"  :alt="detail.name" style="height:auto;"/>
+            <img class="cover-image"  :src="detail.imgPath"  :alt="detail.name" style="height:auto;"/>
 
           </div>
         </div>
