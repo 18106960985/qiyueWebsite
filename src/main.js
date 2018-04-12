@@ -10,7 +10,6 @@ import store from './store' //vuex
 import './styles/style.css' //css
 import './icons' // icon
 
-
 Vue.config.productionTip = false
 
 

@@ -8,7 +8,7 @@
            <router-link :to="'/main/showproduct/'+value.id" :title="value.introduce">
             <font>
               <b></b>
-              <img :src="value.smallImgPath" :title="value.introduce" :alt="value.introduce"   style="display: block;">
+              <img :src="DOWNLOAD_PATH + value.smallImgPath" :title="value.introduce" :alt="value.introduce"   style="display: block;">
             </font>
             <span>
                 <h3>
@@ -26,6 +26,8 @@
 </template>
 
 <script>
+  import {DOWNLOAD_PATH} from '@/utils/lib/CommonConstant';
+
   import {getProductList} from '@/api/product/detailsIndex'
   import eventHub from '@/eventHub/eventHub'
   import metaLayoutContent from '../../components/Layout/contentLayout'
@@ -44,6 +46,7 @@
               filters:''
             },
             proList:[],
+            DOWNLOAD_PATH:DOWNLOAD_PATH
           }
       },
       created(){

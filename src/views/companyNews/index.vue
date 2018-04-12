@@ -7,7 +7,7 @@
           <!--左边图片-->
           <!--<a :href="value.routerPath" class="image left" >-->
           <router-link :to="'/main/newDetails/'+value.id" class="image left">
-            <img class="media-object" :src="value.imgPath" :title="value.title" :alt="value.title">
+            <img class="media-object"  :src="DOWNLOAD_PATH+value.imgPath" :title="value.title" :alt="value.title">
           </router-link>
           <!--</a>-->
           <span>
@@ -32,7 +32,7 @@
          </span>
           <!--右边图片-->
             <router-link :to="'/main/newDetails/'+value.id" class="image right">
-            <img class="media-object" :src="value.imgPath" :title="value.title" :alt="value.title">
+            <img class="media-object" :src="DOWNLOAD_PATH+value.imgPath" :title="value.title" :alt="value.title">
             </router-link>
         </li>
       </ul>
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+  import {DOWNLOAD_PATH} from '@/utils/lib/CommonConstant';
   import eventHub from '@/eventHub/eventHub'
   import {getAll} from '@/api/information/index'
     export default {
@@ -49,6 +50,7 @@
       data(){
           return {
             newList:[],
+            DOWNLOAD_PATH:DOWNLOAD_PATH,
           }
       },
       created(){

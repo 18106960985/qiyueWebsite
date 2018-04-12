@@ -17,13 +17,7 @@ module.exports = {
           '^/api': '/api'
         },
       },
-      '/official': {
-        target: 'http://test-download.meta.net.cn:1234',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/official': '/official'
-        },
-      }
+
 
     },
 

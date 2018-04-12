@@ -1,4 +1,4 @@
-import request from 'axios'
+import request from '@/utils/request'
 import { API_ADMIN , API_AUTH } from '@/utils/lib/CommonConstant';
 
 

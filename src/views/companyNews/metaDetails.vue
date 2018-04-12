@@ -46,7 +46,7 @@
             <ul v-if="recommends">
               <li v-for="value in recommends">
                 <router-link :to="'/main/newDetails/'+value.id"   :title="value.title" :alt="value.title">
-                  <img :src="value.imgPath" :title="value.title" :alt="value.title"  style="display: block;">
+                  <img :src="DOWNLOAD_PATH + value.imgPath" :title="value.title" :alt="value.title"  style="display: block;">
                   <span>
                     {{value.title}}
                   </span>
@@ -66,6 +66,8 @@
 </template>
 
 <script>
+  import {DOWNLOAD_PATH} from '@/utils/lib/CommonConstant';
+
   import {getObj,getRecommends} from '@/api/information/index'
 
   export default {
@@ -77,6 +79,8 @@
         return {
           currentArticle:{},
           recommends:[],
+          DOWNLOAD_PATH:DOWNLOAD_PATH,
+
         }
       },
       created(){
@@ -99,6 +103,7 @@
       methods:{
         getObj(){
           getObj(this.id).then(res=>{
+            console.log(res)
             if(res.data.rel){
               this.currentArticle = res.data.data;
             }

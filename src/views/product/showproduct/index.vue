@@ -10,7 +10,7 @@
         <!--横幅图片-->
         <div class="met-banner" style="height: auto;">
           <div class="slick-slide">
-            <img class="cover-image"  :src="detail.imgPath"  :alt="detail.name" style="height:auto;"/>
+            <img class="cover-image"  :src="DOWNLOAD_PATH + detail.imgPath"  :alt="detail.name" style="height:auto;"/>
 
           </div>
         </div>
@@ -68,26 +68,26 @@
         <ul class="pager pager-round">
           <li class="previous"  v-if="previous">
             <router-link :to="'/main/showproduct/'+previous.id" :title="previous.name" redirect>
-              上一篇
+              上一产品
               <span aria-hidden="true" class="hidden-xs">：{{previous.name}}</span>
             </router-link>
           </li>
           <li class="previous" v-else>
             <a >
-              上一篇
+              上一产品
               <span aria-hidden="true" class="hidden-xs">：被风刮跑了!</span>
             </a>
           </li>
 
           <li class="next " v-if="next">
             <router-link :to="'/main/showproduct/'+next.id" :title="next.name">
-              下一篇
+              下一产品
               <span aria-hidden="true" class="hidden-xs">：{{next.name}}</span>
             </router-link>
           </li>
           <li class="next " v-else>
             <a >
-              下一篇
+              下一产品
               <span aria-hidden="true" class="hidden-xs">：被风刮跑了!</span>
             </a>
           </li>
@@ -100,6 +100,8 @@
 </template>
 
 <script>
+  import {DOWNLOAD_PATH} from '@/utils/lib/CommonConstant';
+
   import BackToTop from '@/components/BackToTop'
   import {getObj,page} from '@/api/product/detailsIndex'
     export default {
@@ -122,6 +124,7 @@
               'line-height': '45px', // 请保持与高度一致以垂直居中 Please keep consistent with height to center vertically
               background: '#e7eaf1'// 按钮的背景颜色 The background color of the button
             },
+            DOWNLOAD_PATH:DOWNLOAD_PATH,
             isActive: false,
             detail:{},
             query:{

@@ -5,4 +5,12 @@ export  const  API_AUTH = "/api/admin/";
 
 export  const  API_ADMIN = "/api/admin/";
 
-export  const  IMG_PATH = 'http://download.meta.net.com/';
+const path_post = ':88';
+
+export  const  UPLOAD_PATH = 'http://test-media.meta.net.cn'+path_post+'/media/upload';
+
+export  const  DOWNLOAD_PATH = 'http://test-download.meta.net.cn'+path_post;
+
+
+
+

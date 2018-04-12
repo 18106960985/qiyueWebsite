@@ -38,6 +38,7 @@
             show:true,
             currentPage: 1,
             direction:"x",
+
             options: [
               {
                 background: 'rgba(46, 153, 229, 1)',

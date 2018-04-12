@@ -6,7 +6,7 @@
           <router-link :to="'/main/showproduct/'+value.id" :title="value.introduce">
           <font>
               <b></b>
-              <img class="" :title="value.name" :alt="value.name" :src="value.smallImgPath">
+              <img class="" :title="value.name" :alt="value.name" :src="DOWNLOAD_PATH + value.smallImgPath">
             </font>
             <span>
               <h3>{{value.name}}</h3>
@@ -34,6 +34,8 @@
 </template>
 
 <script>
+  import {DOWNLOAD_PATH} from '@/utils/lib/CommonConstant';
+
   import {getProductList} from '@/api/product/detailsIndex'
   import Swiper from 'swiper'
   import 'swiper/dist/css/swiper.min.css';
@@ -44,6 +46,8 @@
       return {
 
         proList:[],
+        DOWNLOAD_PATH:DOWNLOAD_PATH,
+
       }
     },
 

@@ -3,33 +3,45 @@
 
 
     <!--首页-->
-    <meta-page :currentPage="currentPage"   >
-      <meta--carousel>
-      </meta--carousel>
-      <div class="banner-down" @click="currentPage++">
-        <svg-icon icon-class="down"/>
-      </div>
-    </meta-page>
+    <keep-alive>
+      <meta-page :currentPage="currentPage"   >
+        <meta--carousel>
+        </meta--carousel>
+        <div class="banner-down" @click="currentPage++">
+          <svg-icon icon-class="down"/>
+        </div>
+      </meta-page>
+    </keep-alive>
     <!--产品-->
-    <meta-page :currentPage="currentPage"  >
-      <meta-goods ></meta-goods>
-    </meta-page>
+    <keep-alive>
+      <meta-page :currentPage="currentPage"  >
+        <meta-goods ></meta-goods>
+      </meta-page>
+    </keep-alive>
     <!--解决方案-->
-    <meta-page :currentPage="currentPage"  >
-      <meta-answer></meta-answer>
-    </meta-page>
+    <keep-alive>
+      <meta-page :currentPage="currentPage"  >
+        <meta-answer></meta-answer>
+      </meta-page>
+    </keep-alive>
     <!--合作-->
-    <meta-page :currentPage="currentPage"  >
-      <meta-cooperation></meta-cooperation>
-    </meta-page>
+    <keep-alive>
+      <meta-page :currentPage="currentPage"  >
+        <meta-cooperation></meta-cooperation>
+      </meta-page>
+    </keep-alive>
     <!--关于-->
+    <keep-alive>
     <meta-page :currentPage="currentPage"  >
       <meta-about-us></meta-about-us>
     </meta-page>
+    </keep-alive>
     <!--联系信息-->
+    <keep-alive>
     <meta-page :currentPage="currentPage"  >
       <meta-contact></meta-contact>
     </meta-page>
+    </keep-alive>
     <!--使用数据遍历-->
     <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu" >
     </meta-nav>
