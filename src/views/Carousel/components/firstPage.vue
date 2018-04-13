@@ -1,7 +1,7 @@
 
 <!--幻灯片第一张-->
 <template>
-  <div  v-if="option && option.index === currentPage ? true :false">
+  <div  v-if="option && option.index === currentPage ? true :false" >
     <!--说明-->
     <div  class="table-box" v-if="option">
       <div class="table-cell">
