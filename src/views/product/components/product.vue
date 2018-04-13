@@ -1,5 +1,5 @@
 <template>
-  <div   v-if="proList" >
+  <div   v-if="proList"  res="pro" >
     <div class="case-box "   style="cursor: -webkit-grab;">
       <ul class="case-cut ">
         <li class="case-bin"  v-for="(value,index) of proList"   >
@@ -17,16 +17,17 @@
           </router-link>
         </li>
       </ul>
-    </div>
-    <!--控制器-->
-    <div class="case-ctrl">
-      <div class="ctrl-box ctrl-left">
-        <svg-icon icon-class="leftPage"/>
+      <!--控制器-->
+      <div class="case-ctrl">
+        <div class="ctrl-box ctrl-left"  @click="nextPage" >
+          <svg-icon icon-class="leftPage"/>
+        </div>
+        <div class="ctrl-box ctrl-right"  @click="prevPage">
+          <svg-icon icon-class="rightPage" />
+        </div>
       </div>
-      <div class="ctrl-box ctrl-right">
-        <svg-icon icon-class="rightPage" />
-      </div>
     </div>
+
   </div>
   <div v-else>
     <b>产品出差去了………………</b>
@@ -47,6 +48,7 @@
 
         proList:[],
         DOWNLOAD_PATH:DOWNLOAD_PATH,
+        mySwiper:null,
 
       }
     },
@@ -68,63 +70,62 @@
       getProductList(){
         getProductList(0).then( res=>{
           this.proList = res.data.data.rows;
+          let _this = this;
+          this.$nextTick(()=>{
+            _this.mySwiper =_this.initSwiper();
+          })
+
+
 
         })
+      },
+      initSwiper(){
+        return new Swiper('.case-box',{
+          noSwiping : false,
+          autoplay: 1000,
+          loop: true,//无限滚动
+          slidesPerView: 4,
+          slidesPerGroup : 1,
+          spaceBetween : 20,
+          breakpoints: {
+            //当宽度小于等于320
+            768: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            1000: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            1200: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            1660: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+            }
+          },
+          autoHeight: false, //高度随内容变化
+          wrapperClass : 'case-cut',
+          slideClass : 'case-bin',
+          speed:1000,
+          onlyExternal : true,
+        });
+      },
+      prevPage(){
+        if(this.mySwiper){
+          this.mySwiper.slidePrev();
+        }
+      },
+      nextPage(){
+        if(this.mySwiper){
+          this.mySwiper.slideNext();
+        }
       }
     },
     mounted() {
-      let mySwiper = new Swiper('.case-box',{
-        noSwiping : false,
-        loop: true,//无限滚动
-        slidesPerView: 4,
-        slidesPerGroup : 1,
-        spaceBetween : 20,
-        breakpoints: {
-          //当宽度小于等于320
-          479: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            width: 300,
-          },
-          767: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-            width: 460,
-          },
-          1200: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            width: 600,
-          },
-          1660: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-            width: 940,
-          }
-        },
 
-        speed:1000,//切换速度
-        debugger: true,
-        onlyExternal:true,
-        autoHeight: false, //高度随内容变化
-        wrapperClass : 'case-cut',
-        slideClass : 'case-bin',
-        autoplay: { //滚动设置
-          delay:3000,
-          disableOnInteraction:false,//不停止自动滚动
-          // reverseDirection: true,//开启反向滚动
-        },
-        navigation: {
-          prevEl: '.ctrl-left',
-          nextEl: '.ctrl-right',
-        },
-        on: {
-          slideChange: function () {
-            // console.log(this.activeIndex);
-          },
-        },
-      })
-      let _this = this;
 
     }
   }

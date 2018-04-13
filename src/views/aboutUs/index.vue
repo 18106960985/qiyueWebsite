@@ -131,10 +131,7 @@
               }
             },
             speed:1000,//切换速度
-            autoplay: { //滚动设置
-              delay:1000,
-              disableOnInteraction:false,//不停止自动滚动
-            },
+            autoplay:1000
           });
         },
         switchActive(index){

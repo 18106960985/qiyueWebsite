@@ -2,10 +2,10 @@
   <div class="window-back" :style="{backgroundImage:backgroundImg}">
     <!--控制栏-->
       <div class="cooperation-ctrl">
-        <div class="ctrl-box ctrl-left">
+        <div class="ctrl-box ctrl-left" @click="nextPage">
           <svg-icon icon-class="leftPage"/>
         </div>
-        <div class="ctrl-box ctrl-right">
+        <div class="ctrl-box ctrl-right" @click="prevPage">
           <svg-icon icon-class="rightPage" />
         </div>
       </div>
@@ -38,6 +38,7 @@
         name: "index",
       data(){
           return {
+            mySwiper:null,
             backgroundImg: 'url('+require('@/assets/background/bg-cooperation.jpg')+')' ,
             cooperations:[
               {
@@ -150,16 +151,22 @@
             //   disableOnInteraction:false,//不停止自动滚动
             //   // reverseDirection: true,//开启反向滚动
             // },
-            navigation: {
-              prevEl: '.ctrl-left',
-              nextEl: '.ctrl-right',
-            },
             on: {
               slideChange: function () {
                 // console.log(this.activeIndex);
               },
             },
           });
+        },
+        prevPage(){
+          if(this.mySwiper){
+            this.mySwiper.slidePrev();
+          }
+        },
+        nextPage(){
+          if(this.mySwiper){
+            this.mySwiper.slideNext();
+          }
         }
       },
       mounted(){

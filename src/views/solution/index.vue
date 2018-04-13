@@ -1,10 +1,10 @@
 <template>
   <div class="window-back" :style="{backgroundImage:backgroundImg}">
     <div class="solution-ctrl">
-      <div class="ctrl-box ctrl-left">
+      <div class="ctrl-box ctrl-left" @click="nextPage">
         <svg-icon icon-class="leftPage"/>
       </div>
-      <div class="ctrl-box ctrl-right">
+      <div class="ctrl-box ctrl-right" @click="prevPage" >
         <svg-icon icon-class="rightPage" />
       </div>
     </div>
@@ -47,6 +47,7 @@
       data(){
         return {
           backgroundImg: 'url('+require('../../assets/background/bg-answer.jpg')+')' ,
+          mySwiper:null,
           answers:[
             {
               svgIcon:['win', 'linux', 'IOS', 'Andrews'],//图片
@@ -123,21 +124,19 @@
               autoHeight: false, //高度随内容变化
               wrapperClass : 'solution-cut',
               slideClass : 'solution-bin',
-              autoplay: { //滚动设置
-                delay:3000,
-                disableOnInteraction:false,//不停止自动滚动
-                // reverseDirection: true,//开启反向滚动
-              },
-              navigation: {
-                prevEl: '.ctrl-left',
-                nextEl: '.ctrl-right',
-              },
-              on: {
-                slideChange: function () {
-                  // console.log(this.activeIndex);
-                },
-              },
+              autoplay:1000,
             });
+          },
+          prevPage(){
+            if(this.mySwiper){
+
+              this.mySwiper.slidePrev();
+            }
+          },
+          nextPage(){
+            if(this.mySwiper){
+              this.mySwiper.slideNext();
+            }
           }
       },
       mounted(){
