@@ -59,7 +59,7 @@
 
 <script>
   import Swiper from 'swiper'
-  import 'swiper/dist/css/swiper.min.css'
+  import 'swiper/dist/idangerous.swiper.css';
     export default {
         name: "about-main",
       data(){

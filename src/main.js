@@ -11,6 +11,8 @@ import './styles/style.css' //css
 import './icons' // icon
 import 'babel-polyfill'
 Vue.config.productionTip = false
+import 'babel-polyfill'
+import 'babel-polyfill'
 
 
 new Vue({
