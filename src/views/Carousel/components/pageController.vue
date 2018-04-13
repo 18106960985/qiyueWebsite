@@ -55,17 +55,17 @@
         this.$emit('update:currentPage',index);
       },
       // 自动切换页面
-      // switchPage(){
-      //     // 防止重复触发滚动事件
-      //     if (this.timer != null) {
-      //       clearTimeout(this.timer);
-      //       this.timer = null ;
-      //     }
-      //     let _this = this;
-      //     this.timer = setTimeout(()=>{
-      //       _this.changePage(_this.nextIndex);
-      //     },4000);
-      // }
+      switchPage(){
+          // 防止重复触发滚动事件
+          if (this.timer != null) {
+            clearTimeout(this.timer);
+            this.timer = null ;
+          }
+          let _this = this;
+          this.timer = setTimeout(()=>{
+            _this.changePage(_this.nextIndex);
+          },4000);
+      }
     }
 
   }

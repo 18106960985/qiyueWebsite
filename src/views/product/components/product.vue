@@ -38,7 +38,7 @@
 
   import {getProductList} from '@/api/product/detailsIndex'
   import Swiper from 'swiper'
-  import 'swiper/dist/idangerous.swiper.css';
+  import 'swiper/dist/css/swiper.min.css';
   export default {
     name: "product-list",
 
