@@ -108,6 +108,7 @@
         let start = 0;
         // 滚轮处理 原本放在index想了想解耦就放menu里面控制了
       function scrollHandler(direction){
+
           // 防止重复触发滚动事件
           if (timer != null) {
             return;
@@ -123,38 +124,27 @@
             timer = null;
           }, 800);
         }
-        // pc监听滚轮事件
-        if (Object.hasOwnProperty.call(window,'onmousewheel')) {
-          // 监听滚轮事件
-          window.addEventListener('mousewheel',function (event) {   // IE/Opera/Chrome
-            let direction = event.wheelDelta > 0 ? 'up':'down';
-            scrollHandler(direction);
-          },false);
-        } else {
-          window.addEventListener('DOMMouseScroll',function (event) {   // Firefox
-            let direction = event.detail > 0 ? 'up':'down';
-            scrollHandler(direction);
-          },false);
-        }
-        //移动设备监听
-        // 移动端触摸事件处理
-        window.addEventListener('touchstart', function (event) {
-          start = event.touches[0].clientY;
-        })
-        window.addEventListener('touchmove', function (event) {
-          event.preventDefault();
-        })
-        window.addEventListener('touchend', function (event) {
-          let spacing = event.changedTouches[0].clientY - start;
-          let direction;
-          if (spacing > 50) {
-            direction = 'up';
-            scrollHandler(direction);
-          } else if (spacing < -50) {
-            direction = 'down';
-            scrollHandler(direction);
+
+        function handle(delta) {
+
+          let direction = delta> 0 ? 'up':'down';
+          scrollHandler(direction);
+        }//from www.fengfly.com
+        function wheel(event){
+          var delta = 0;
+          if (!event) event = window.event;
+          if (event.wheelDelta) {
+            delta = event.wheelDelta/120;
+            if (window.opera) delta = -delta;
+          } else if (event.detail) {
+            delta = -event.detail/3;
           }
-        })
+          if (delta)
+            handle(delta);
+        }
+        if (window.addEventListener)
+          window.addEventListener('DOMMouseScroll', wheel, false);
+        window.onmousewheel = document.onmousewheel = wheel;
         this.initSlider();
       }
 

@@ -154,7 +154,14 @@
     },
     computed:{
 
+      nextPage(){
 
+
+      },
+      prevPage(){
+
+
+      }
     },
     methods: {
 
@@ -187,6 +194,11 @@
         }
 
       });
+
+
+
+
+
 
     }
   }
