@@ -274,7 +274,7 @@
   }
   .window-bin.foot,
   footer {
-    position: fixed;
+
     bottom: 0;
     width: 100%;
     height: auto;
@@ -284,6 +284,8 @@
     color: #eee;
     text-align: center;
     border: none !important;
+    position: absolute;
+    top: expression(eval(document.documentElement.scrollTop));
   }
 
   .window-bin.foot a,

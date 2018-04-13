@@ -187,10 +187,18 @@ li {
 .table-box {
   display: table;
   width: 100%;
+  height: 100%;
+  position: fixed;
+
+  /* IE6改为绝对定位，并通过css表达式根据滚动位置更改top的值 */
   position: absolute;
-  height: 94%;
-  top: 0;
-  left: 0;
+  top: expression(eval(document.documentElement.scrollTop));
+  /*display: table;*/
+  /*width: 100%;*/
+  /*position: absolute;*/
+  /*height: 94%;*/
+  /*top: 0;*/
+  /*left: 0;*/
 }
 
 .table-cell {
