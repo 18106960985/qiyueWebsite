@@ -10,7 +10,9 @@
         <!--横幅图片-->
         <div class="met-banner" style="height: auto;">
           <div class="slick-slide">
-            <img class="cover-image"  :src="DOWNLOAD_PATH + detail.imgPath"  :alt="detail.name" style="height:auto;"/>
+            <!--<img :src="DOWNLOAD_PATH + detail.imgPath" />-->
+            <img class="cover-image"  :src="IMG_PATH"   style="height:auto;"/>
+
 
           </div>
         </div>
@@ -37,6 +39,7 @@
         </font>
         <!--简介内容-->
         <div>
+
           <!--产品图片-->
             <!--<dl >-->
               <!--<dt>-->
@@ -124,7 +127,7 @@
               'line-height': '45px', // 请保持与高度一致以垂直居中 Please keep consistent with height to center vertically
               background: '#e7eaf1'// 按钮的背景颜色 The background color of the button
             },
-            DOWNLOAD_PATH:DOWNLOAD_PATH,
+            IMG_PATH:null,
             isActive: false,
             detail:{},
             query:{
@@ -142,7 +145,6 @@
         this.getObj();
       },
       filters:{
-
       },
       watch:{
           // id(){
@@ -157,6 +159,8 @@
             getObj(this.id).then(res=>{
               if(res.data.rel){
                 this.detail = res.data.data;
+                //图片路径不知道为啥不能直接加
+                this.IMG_PATH = DOWNLOAD_PATH + this.detail.imgPath;
                 this.previousPage();
               }
             })
