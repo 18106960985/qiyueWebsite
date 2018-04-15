@@ -51,7 +51,7 @@
           //已被vuex托管
           isActive:{
             type:Boolean,
-            default:true
+            default:false
           }
       },
 
@@ -105,7 +105,7 @@
           },
           initSlider(){
             this.sidebar.index = this.active.oldIndex ;
-            this.setSliderStyle(this.$refs.targetEle[ this.sidebar.index-1]);
+            this.setSliderStyle(this.$refs.targetEle[this.sidebar.index-1]);
           },
           setSliderStyle(targetEle){
             let startOffset = targetEle.offsetTop,

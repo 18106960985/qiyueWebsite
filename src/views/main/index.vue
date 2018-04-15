@@ -3,47 +3,35 @@
 
 
     <!--首页-->
-    <keep-alive>
-      <meta-page :currentPage="currentPage"   >
+      <meta-page :currentPage="currentPage"   ref="firstPage" >
         <meta--carousel>
         </meta--carousel>
         <div class="banner-down" @click="currentPage++">
           <svg-icon icon-class="down"/>
         </div>
       </meta-page>
-    </keep-alive>
     <!--产品-->
-    <keep-alive>
-      <meta-page :currentPage="currentPage"  >
+      <meta-page :currentPage="currentPage"  v-show="isShow">
         <meta-goods ></meta-goods>
       </meta-page>
-    </keep-alive>
     <!--解决方案-->
-    <keep-alive>
-      <meta-page :currentPage="currentPage"  >
+      <meta-page :currentPage="currentPage"  v-show="isShow">
         <meta-answer></meta-answer>
       </meta-page>
-    </keep-alive>
     <!--合作-->
-    <keep-alive>
-      <meta-page :currentPage="currentPage"  >
-        <meta-cooperation></meta-cooperation>
+        <meta-page :currentPage="currentPage"  v-show="isShow">
+          <meta-cooperation></meta-cooperation>
+        </meta-page>
+      <!--关于-->
+      <meta-page :currentPage="currentPage"  v-show="isShow">
+        <meta-about-us></meta-about-us>
       </meta-page>
-    </keep-alive>
-    <!--关于-->
-    <keep-alive>
-    <meta-page :currentPage="currentPage"  >
-      <meta-about-us></meta-about-us>
-    </meta-page>
-    </keep-alive>
-    <!--联系信息-->
-    <keep-alive>
-    <meta-page :currentPage="currentPage"  >
-      <meta-contact></meta-contact>
-    </meta-page>
-    </keep-alive>
+      <!--联系信息-->
+      <meta-page :currentPage="currentPage"  v-show="isShow">
+        <meta-contact></meta-contact>
+      </meta-page>
     <!--使用数据遍历-->
-    <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu" >
+    <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu" v-show="isShow">
     </meta-nav>
 
   </div>
@@ -81,6 +69,7 @@
     },
     data(){
       return {
+        isShow:false,
         options: [{
           background: '#fff',
           //背景图片
@@ -172,8 +161,9 @@
         this.$emit("update:leftMenuIsActive",isActive);
       },
       initPage(){
-        console.log(this.totalPage)
+        let size= this.options.length - 1;
         this.$children.forEach((child, index) => {
+          if (index >size) return;
           if (child.option == null) {
             let childOption = this.options[index];
             this.$set(childOption, 'index', index + 1);
@@ -183,18 +173,12 @@
       }
     },
     mounted() {
+      let _this =this;
+        this.$refs.firstPage.$nextTick(() =>{
+          _this.isShow = true;
+        });
 
-     let size= this.options.length -1;
-      this.$children.forEach((child, index) => {
-        if (index >size) return;
-        if (child.option == null) {
-          let childOption = this.options[index];
-          this.$set(childOption, 'index', index + 1);
-          child.option = childOption;
-        }
-
-      });
-
+      _this.initPage();
 
 
 
