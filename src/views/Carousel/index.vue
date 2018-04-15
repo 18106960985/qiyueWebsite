@@ -1,17 +1,17 @@
 <template>
   <div >
 
-    <ye-page :currentPage.sync="currentPage"  ref="firstCard" >
+    <ye-page :currentPage.sync="currentPage"  >
       <first-page :currentPage="currentPage"></first-page>
     </ye-page>
     <ye-page :currentPage.sync="currentPage" >
-      <second-page :currentPage="currentPage"  v-show="isShow"></second-page>
+      <second-page :currentPage="currentPage"  ></second-page>
     </ye-page>
     <ye-page :currentPage.sync="currentPage" >
-      <last-page :currentPage="currentPage" v-show="isShow"></last-page>
+      <last-page :currentPage="currentPage" ></last-page>
     </ye-page>
     <ye-page :currentPage.sync="currentPage" >
-      <last-page :currentPage="currentPage" v-show="isShow"></last-page>
+      <last-page :currentPage="currentPage"></last-page>
     </ye-page>
     <page-controller  :currentPage.sync="currentPage" :pageNum="options.length"  ></page-controller>
   </div>
@@ -41,7 +41,7 @@
 
             options: [
               {
-                background: '#fff',
+                background: 'rgba(46, 153, 229, 1)',
                 color: '#fff',
                 isCenter: true,
                 direction:"x",
@@ -158,11 +158,6 @@
 
       },
       mounted(){
-
-        let _this =this;
-        this.$refs.firstCard.$nextTick(() =>{
-          _this.isShow = true;
-        });
         this.initPage();
       }
 

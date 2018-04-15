@@ -11,27 +11,27 @@
         </div>
       </meta-page>
     <!--产品-->
-      <meta-page :currentPage="currentPage"  v-show="isShow">
-        <meta-goods ></meta-goods>
+      <meta-page :currentPage="currentPage" >
+        <meta-goods  v-if="isShow" ></meta-goods>
       </meta-page>
     <!--解决方案-->
-      <meta-page :currentPage="currentPage"  v-show="isShow">
-        <meta-answer></meta-answer>
+      <meta-page :currentPage="currentPage" >
+        <meta-answer  v-if="isShow"></meta-answer>
       </meta-page>
     <!--合作-->
-        <meta-page :currentPage="currentPage"  v-show="isShow">
-          <meta-cooperation></meta-cooperation>
+        <meta-page :currentPage="currentPage" >
+          <meta-cooperation  v-if="isShow"></meta-cooperation>
         </meta-page>
       <!--关于-->
-      <meta-page :currentPage="currentPage"  v-show="isShow">
-        <meta-about-us></meta-about-us>
+      <meta-page :currentPage="currentPage" >
+        <meta-about-us  v-if="isShow"></meta-about-us>
       </meta-page>
       <!--联系信息-->
-      <meta-page :currentPage="currentPage"  v-show="isShow">
-        <meta-contact></meta-contact>
+      <meta-page :currentPage="currentPage"  >
+        <meta-contact  v-if="isShow"></meta-contact>
       </meta-page>
     <!--使用数据遍历-->
-    <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu" v-show="isShow">
+    <meta-nav :currentPage="currentPage"  :ulOptions="components.ulOptions"  :leftMenuIsActive="leftMenuIsActive" @changPage="changPage" @changLeftMenu="changLeftMenu">
     </meta-nav>
 
   </div>
@@ -175,9 +175,10 @@
     mounted() {
       let _this =this;
         this.$refs.firstPage.$nextTick(() =>{
-          _this.isShow = true;
+          setTimeout(()=>{
+            _this.isShow = true;
+          },500)
         });
-
       _this.initPage();
 
 
