@@ -297,4 +297,12 @@
     }
   }
 
+  @media (max-width: 375px){
+
+    .solution-box {
+      margin-top: 20px;
+      width: 375px;
+    }
+  }
+
 </style>
