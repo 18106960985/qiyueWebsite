@@ -145,6 +145,28 @@
         if (window.addEventListener)
           window.addEventListener('DOMMouseScroll', wheel, false);
         window.onmousewheel = document.onmousewheel = wheel;
+
+
+
+        //移动设备监听
+        // 移动端触摸事件处理
+        window.addEventListener('touchstart', function (event) {
+          start = event.touches[0].clientY;
+        })
+        window.addEventListener('touchmove', function (event) {
+          event.preventDefault();
+        })
+        window.addEventListener('touchend', function (event) {
+          let spacing = event.changedTouches[0].clientY - start;
+          let direction;
+          if (spacing > 50) {
+            direction = 'up';
+            scrollHandler(direction);
+          } else if (spacing < -50) {
+            direction = 'down';
+            scrollHandler(direction);
+          }
+        })
         this.initSlider();
       }
 
